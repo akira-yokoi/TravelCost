@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DateKeyboardViewController : UIViewController
-{
-    UIDatePicker *datePicker;
-}
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 - (IBAction)valueChanged:(id)sender;

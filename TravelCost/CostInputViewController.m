@@ -218,10 +218,15 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     [ViewUtil showToast: [StringUtil toStringInt:buttonIndex]];
     
-    //遷移先（Navi2）クラスのインスタンスを生成
-    InputSettingListViewController *inputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InputSettingListViewController"];//手順7で付けた名前
-    
-    [[self navigationController] pushViewController:inputSettingViewController animated:YES];
+    //遷移先のインスタンスを生成
+    if ( buttonIndex == 1){
+        InputSettingListViewController *inputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InputSettingListViewController"];
+        [[self navigationController] pushViewController:inputSettingViewController animated:YES];
+    }
+    else if( buttonIndex == 2){
+        OutputSettingListViewController *outputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"OutputSettingListViewController"];
+        [[self navigationController] pushViewController:outputSettingViewController animated:YES];
+    }
 }
 
 /**

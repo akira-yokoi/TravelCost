@@ -39,6 +39,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -53,6 +55,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -65,6 +69,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -77,6 +83,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -89,6 +97,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:YES ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -103,6 +113,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -118,6 +130,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -130,6 +144,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:YES ];
+            model.inputFlag = YES;
+            model.outputFlag = YES;
             [itemSettings addObject:model];
         }
         
@@ -142,6 +158,8 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             [model setInputOrderNum: orderNum];
             [model setOutputOrderNum: orderNum];
             [model setCanUpdateFlag:NO ];
+            model.inputFlag = YES;
+            model.outputFlag = NO;
             [itemSettings addObject:model];
         }
         BOOL result = [itemSettingDao saveModels:itemSettings];

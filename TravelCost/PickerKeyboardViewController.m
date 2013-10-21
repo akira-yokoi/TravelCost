@@ -40,11 +40,11 @@
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView{
-    return 1; //列数は２つ
+    return 2; //列数は２つ
 }
 
 -(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 5;  // 2列目は5行
+    return 5;  // 各列は5行
 }
 
 // 表示する内容を返す例

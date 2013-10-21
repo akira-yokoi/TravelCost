@@ -29,6 +29,7 @@
 #import "iToast.h"
 
 #import "InputSettingListViewController.h"
+#import "OutputSettingListViewController.h"
 
 @interface CostInputViewController : UIViewController<UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 

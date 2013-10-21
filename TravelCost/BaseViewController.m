@@ -1,18 +1,18 @@
 //
-//  DateKeyboardViewController.m
+//  BaseViewController.m
 //  TravelCost
 //
-//  Created by 横井朗 on 2013/10/07.
+//  Created by 横井朗 on 2013/10/17.
 //  Copyright (c) 2013年 akira yokoi. All rights reserved.
 //
 
-#import "DateKeyboardViewController.h"
+#import "BaseViewController.h"
 
-@interface DateKeyboardViewController ()
+@interface BaseViewController ()
 
 @end
 
-@implementation DateKeyboardViewController
+@implementation BaseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,7 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)valueChanged:(id)sender {
-    NSLog(@"ValueChanged");
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    // リターンキーでキーボードを非表示にする
+    [textField resignFirstResponder];
+    return YES;
 }
+
 @end
