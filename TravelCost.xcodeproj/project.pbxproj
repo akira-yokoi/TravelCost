@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E689181018FC0050FAD9 /* BaseViewController.m */; };
+		E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */; };
+		E949E6981810337F0050FAD9 /* PickerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E6971810337F0050FAD9 /* PickerDataSource.m */; };
+		E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */; };
+		E949E69E1810C79A0050FAD9 /* OutputSettingListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69D1810C79A0050FAD9 /* OutputSettingListViewCell.m */; };
+		E949E6A1181132C80050FAD9 /* OutputSettingEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E6A0181132C80050FAD9 /* OutputSettingEditViewController.m */; };
+		E949E6A4181133E90050FAD9 /* 739-question.png in Resources */ = {isa = PBXBuildFile; fileRef = E949E6A2181133E90050FAD9 /* 739-question.png */; };
+		E949E6A5181133E90050FAD9 /* 739-question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E949E6A3181133E90050FAD9 /* 739-question@2x.png */; };
 		E9578EFF17FDB2F50035B289 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578EFE17FDB2F50035B289 /* Foundation.framework */; };
 		E9578F0117FDB2F50035B289 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F0017FDB2F50035B289 /* CoreGraphics.framework */; };
 		E9578F0317FDB2F50035B289 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F0217FDB2F50035B289 /* UIKit.framework */; };
@@ -85,6 +93,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E949E688181018FC0050FAD9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E949E689181018FC0050FAD9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E949E68F18101A4F0050FAD9 /* InputSettingEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSettingEditViewController.h; sourceTree = "<group>"; };
+		E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputSettingEditViewController.m; sourceTree = "<group>"; };
+		E949E6961810337F0050FAD9 /* PickerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerDataSource.h; sourceTree = "<group>"; };
+		E949E6971810337F0050FAD9 /* PickerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerDataSource.m; sourceTree = "<group>"; };
+		E949E69918103DFE0050FAD9 /* OutputSettingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSettingListViewController.h; sourceTree = "<group>"; };
+		E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputSettingListViewController.m; sourceTree = "<group>"; };
+		E949E69C1810C79A0050FAD9 /* OutputSettingListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSettingListViewCell.h; sourceTree = "<group>"; };
+		E949E69D1810C79A0050FAD9 /* OutputSettingListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputSettingListViewCell.m; sourceTree = "<group>"; };
+		E949E69F181132C80050FAD9 /* OutputSettingEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSettingEditViewController.h; sourceTree = "<group>"; };
+		E949E6A0181132C80050FAD9 /* OutputSettingEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputSettingEditViewController.m; sourceTree = "<group>"; };
+		E949E6A2181133E90050FAD9 /* 739-question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "739-question.png"; sourceTree = "<group>"; };
+		E949E6A3181133E90050FAD9 /* 739-question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "739-question@2x.png"; sourceTree = "<group>"; };
 		E9578EFB17FDB2F50035B289 /* TravelCost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelCost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9578EFE17FDB2F50035B289 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9578F0017FDB2F50035B289 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +235,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E949E68B181019020050FAD9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E949E688181018FC0050FAD9 /* BaseViewController.h */,
+				E949E689181018FC0050FAD9 /* BaseViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		E9578EF217FDB2F50035B289 = {
 			isa = PBXGroup;
 			children = (
@@ -255,12 +286,12 @@
 				E9578F1017FDB2F60035B289 /* Main.storyboard */,
 				E9D54F68180C262600167C19 /* cell */,
 				E989480817FDC82100E07F9E /* controller */,
-				E9B13E4217FEB8D40089B860 /* amd */,
-				E9B13E3B17FEADEB0089B860 /* dao */,
 				E9B13E1117FE6C430089B860 /* model */,
+				E9B13E3B17FEADEB0089B860 /* dao */,
 				E989480917FDC84200E07F9E /* view */,
 				E9578F1617FDB2F60035B289 /* Images.xcassets */,
 				E9578F0517FDB2F60035B289 /* Supporting Files */,
+				E9B13E4217FEB8D40089B860 /* amd */,
 				E9B13E0917FE6ADE0089B860 /* lib */,
 			);
 			path = TravelCost;
@@ -304,6 +335,14 @@
 				E9BF9CFB180543520055FBA3 /* CostListViewController.m */,
 				E9D54F69180C273200167C19 /* InputSettingListViewController.h */,
 				E9D54F6A180C273200167C19 /* InputSettingListViewController.m */,
+				E949E68F18101A4F0050FAD9 /* InputSettingEditViewController.h */,
+				E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */,
+				E949E6961810337F0050FAD9 /* PickerDataSource.h */,
+				E949E6971810337F0050FAD9 /* PickerDataSource.m */,
+				E949E69918103DFE0050FAD9 /* OutputSettingListViewController.h */,
+				E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */,
+				E949E69F181132C80050FAD9 /* OutputSettingEditViewController.h */,
+				E949E6A0181132C80050FAD9 /* OutputSettingEditViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -333,6 +372,8 @@
 		E99101D2180465C200F3B048 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E949E6A2181133E90050FAD9 /* 739-question.png */,
+				E949E6A3181133E90050FAD9 /* 739-question@2x.png */,
 				E9BF9CF618053E6F0055FBA3 /* 709-plus.png */,
 				E9BF9CF718053E6F0055FBA3 /* 709-plus@2x.png */,
 				E9BF9CF218053E5B0055FBA3 /* 730-envelope.png */,
@@ -341,10 +382,10 @@
 				E9BF9CEB18053CDE0055FBA3 /* 765-arrow-left@2x.png */,
 				E9BF9CEC18053CDE0055FBA3 /* 766-arrow-right.png */,
 				E9BF9CED18053CDE0055FBA3 /* 766-arrow-right@2x.png */,
+				E99101E618046E2D00F3B048 /* 729-top-list@2x.png */,
 				E99101E91805110000F3B048 /* 711-trash.png */,
 				E99101EA1805110000F3B048 /* 711-trash@2x.png */,
 				E99101E518046E2D00F3B048 /* 729-top-list.png */,
-				E99101E618046E2D00F3B048 /* 729-top-list@2x.png */,
 				E99101E118046DFF00F3B048 /* 854-list.png */,
 				E99101E218046DFF00F3B048 /* 854-list@2x.png */,
 				E99101DD18046DEF00F3B048 /* 785-floppy-disk.png */,
@@ -423,6 +464,7 @@
 		E9B13E4217FEB8D40089B860 /* amd */ = {
 			isa = PBXGroup;
 			children = (
+				E949E68B181019020050FAD9 /* controller */,
 				E9B1EA7E1806B88800DD6CFC /* common */,
 				E9EEA6261800F93600FFAF63 /* util */,
 				E9B13E4717FEB9F50089B860 /* model */,
@@ -469,6 +511,8 @@
 				E9D54F65180BED4300167C19 /* InputViewSwitchCell.m */,
 				E9BF9CFD1805475F0055FBA3 /* ListViewCell.h */,
 				E9BF9CFE1805475F0055FBA3 /* ListViewCell.m */,
+				E949E69C1810C79A0050FAD9 /* OutputSettingListViewCell.h */,
+				E949E69D1810C79A0050FAD9 /* OutputSettingListViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -575,6 +619,7 @@
 				E99101E718046E2D00F3B048 /* 729-top-list.png in Resources */,
 				E9BF9CF518053E5B0055FBA3 /* 730-envelope@2x.png in Resources */,
 				E9BF9CEE18053CDE0055FBA3 /* 765-arrow-left.png in Resources */,
+				E949E6A4181133E90050FAD9 /* 739-question.png in Resources */,
 				E99101E418046DFF00F3B048 /* 854-list@2x.png in Resources */,
 				E99101EB1805110000F3B048 /* 711-trash.png in Resources */,
 				E9BF9CF918053E6F0055FBA3 /* 709-plus@2x.png in Resources */,
@@ -582,6 +627,7 @@
 				E9BF9CF118053CDE0055FBA3 /* 766-arrow-right@2x.png in Resources */,
 				E99101E818046E2D00F3B048 /* 729-top-list@2x.png in Resources */,
 				E9BF9CF818053E6F0055FBA3 /* 709-plus.png in Resources */,
+				E949E6A5181133E90050FAD9 /* 739-question@2x.png in Resources */,
 				E9578F0917FDB2F60035B289 /* InfoPlist.strings in Resources */,
 				E9BF9CF418053E5B0055FBA3 /* 730-envelope.png in Resources */,
 				E992E69C1802B09B00ED032A /* DateKeyboardView.xib in Resources */,
@@ -605,8 +651,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */,
 				E9D54F66180BED4300167C19 /* InputViewSwitchCell.m in Sources */,
 				E9B13E1717FE77CA0089B860 /* ItemValueModel.m in Sources */,
+				E949E6981810337F0050FAD9 /* PickerDataSource.m in Sources */,
 				E9578F1517FDB2F60035B289 /* CostInputViewController.m in Sources */,
 				E9BF9CFC180543520055FBA3 /* CostListViewController.m in Sources */,
 				E9578F0F17FDB2F60035B289 /* AppDelegate.m in Sources */,
@@ -618,6 +666,7 @@
 				E9B13E3E17FEAE050089B860 /* TravelCostDao.m in Sources */,
 				E9B13E3317FEA5940089B860 /* FMDatabaseQueue.m in Sources */,
 				E9B13E6118005BD60089B860 /* ItemValueDao.m in Sources */,
+				E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */,
 				E9BF9D0218055A8E0055FBA3 /* ModelManager.m in Sources */,
 				E9B13E1A17FE77CA0089B860 /* TravelCostModel.m in Sources */,
 				E9B13E3117FEA5940089B860 /* FMDatabaseAdditions.m in Sources */,
@@ -625,6 +674,7 @@
 				E9B13E0F17FE6AF40089B860 /* MJPopupBackgroundView.m in Sources */,
 				E99101D118044FFF00F3B048 /* iToast.m in Sources */,
 				E9EEA6291800F95700FFAF63 /* StringUtil.m in Sources */,
+				E949E69E1810C79A0050FAD9 /* OutputSettingListViewCell.m in Sources */,
 				E9B13E5B18004CC00089B860 /* DateTimeUtil.m in Sources */,
 				E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */,
 				E9B13E3517FEA5940089B860 /* FMResultSet.m in Sources */,
@@ -632,10 +682,12 @@
 				E9BF9CFF1805475F0055FBA3 /* ListViewCell.m in Sources */,
 				E9B13E4117FEB8C80089B860 /* Dao.m in Sources */,
 				E9B13E5E18005B780089B860 /* ItemSettingDao.m in Sources */,
+				E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */,
 				E9B13E3217FEA5940089B860 /* FMDatabasePool.m in Sources */,
 				E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */,
 				E99101C718044AC300F3B048 /* ViewUtil.m in Sources */,
 				E9B13E3A17FEAA170089B860 /* DatabaseManager.m in Sources */,
+				E949E6A1181132C80050FAD9 /* OutputSettingEditViewController.m in Sources */,
 				E9B13E1017FE6AF40089B860 /* UIViewController+MJPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
