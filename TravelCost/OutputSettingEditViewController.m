@@ -38,7 +38,17 @@
 - (IBAction)helpSelected:(id)sender {
 }
 
+-(void)modalViewDidDissmissed{
+    NSLog(@"AAA");
+}
+
 - (IBAction)addStringSelected:(id)sender {
+    //UIViewControllerを継承したModalViewController
+    OutputSettingItemViewController *mvc = [[OutputSettingItemViewController alloc] initWithNibName:@"OutputSettingItemView" bundle:nil];
+    mvc.delegate = self;
+    [self presentViewController:mvc animated:YES completion:nil];
+    
+    /*
     UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Twitter  Login" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
     
     UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 15.0, 260.0, 25.0)];
@@ -51,6 +61,7 @@
     
     [myAlertView addSubview:myTextField];
     [myAlertView show];
+     */
 }
 
 - (IBAction)addItemSelected:(id)sender {

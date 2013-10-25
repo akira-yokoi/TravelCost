@@ -31,6 +31,8 @@
 		E9578F2A17FDB2F60035B289 /* TravelCostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F2917FDB2F60035B289 /* TravelCostTests.m */; };
 		E986B7461802F3C300C1E5C1 /* PickerKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */; };
 		E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */; };
+		E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */; };
+		E98D7C401814CDC600BB301C /* OutputSettingItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98D7C3F1814CDC600BB301C /* OutputSettingItemViewController.m */; };
 		E99101C718044AC300F3B048 /* ViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E99101C618044AC300F3B048 /* ViewUtil.m */; };
 		E99101CD18044F4C00F3B048 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99101CC18044F4C00F3B048 /* QuartzCore.framework */; };
 		E99101D118044FFF00F3B048 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E99101D018044FFF00F3B048 /* iToast.m */; };
@@ -47,16 +49,16 @@
 		E992E69A18029C1E00ED032A /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E992E69918029C1E00ED032A /* InputViewCell.m */; };
 		E992E69C1802B09B00ED032A /* DateKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E992E69B1802B09B00ED032A /* DateKeyboardView.xib */; };
 		E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E992E6A11802B45500ED032A /* DateKeyboardViewController.m */; };
+		E9966249181A6781008727D8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966240181A6781008727D8 /* FMDatabase.m */; };
+		E996624A181A6781008727D8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966242181A6781008727D8 /* FMDatabaseAdditions.m */; };
+		E996624B181A6781008727D8 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966244181A6781008727D8 /* FMDatabasePool.m */; };
+		E996624C181A6781008727D8 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966246181A6781008727D8 /* FMDatabaseQueue.m */; };
+		E996624D181A6781008727D8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966248181A6781008727D8 /* FMResultSet.m */; };
 		E9B13E0F17FE6AF40089B860 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E0C17FE6AF40089B860 /* MJPopupBackgroundView.m */; };
 		E9B13E1017FE6AF40089B860 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E0E17FE6AF40089B860 /* UIViewController+MJPopupViewController.m */; };
 		E9B13E1717FE77CA0089B860 /* ItemValueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E1617FE77CA0089B860 /* ItemValueModel.m */; };
 		E9B13E1A17FE77CA0089B860 /* TravelCostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E1917FE77CA0089B860 /* TravelCostModel.m */; };
 		E9B13E1D17FE77CA0089B860 /* ItemSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E1C17FE77CA0089B860 /* ItemSettingModel.m */; };
-		E9B13E3017FEA5940089B860 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E2617FEA5940089B860 /* FMDatabase.m */; };
-		E9B13E3117FEA5940089B860 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E2817FEA5940089B860 /* FMDatabaseAdditions.m */; };
-		E9B13E3217FEA5940089B860 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E2A17FEA5940089B860 /* FMDatabasePool.m */; };
-		E9B13E3317FEA5940089B860 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E2C17FEA5940089B860 /* FMDatabaseQueue.m */; };
-		E9B13E3517FEA5940089B860 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E2F17FEA5940089B860 /* FMResultSet.m */; };
 		E9B13E3717FEA5C40089B860 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B13E3617FEA5C40089B860 /* libsqlite3.dylib */; };
 		E9B13E3A17FEAA170089B860 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E3917FEAA170089B860 /* DatabaseManager.m */; };
 		E9B13E3E17FEAE050089B860 /* TravelCostDao.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B13E3D17FEAE050089B860 /* TravelCostDao.m */; };
@@ -129,6 +131,10 @@
 		E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerKeyboardView.xib; sourceTree = "<group>"; };
 		E986B7471802F41A00C1E5C1 /* PickerKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerKeyboardViewController.h; sourceTree = "<group>"; };
 		E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerKeyboardViewController.m; sourceTree = "<group>"; };
+		E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutputSettingItemView.xib; sourceTree = "<group>"; };
+		E98D7C3E1814CDC600BB301C /* OutputSettingItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSettingItemViewController.h; sourceTree = "<group>"; };
+		E98D7C3F1814CDC600BB301C /* OutputSettingItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputSettingItemViewController.m; sourceTree = "<group>"; };
+		E98D7C4118152F6300BB301C /* ModalViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewDelegate.h; sourceTree = "<group>"; };
 		E99101C518044AC300F3B048 /* ViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtil.h; sourceTree = "<group>"; };
 		E99101C618044AC300F3B048 /* ViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtil.m; sourceTree = "<group>"; };
 		E99101CC18044F4C00F3B048 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -149,6 +155,16 @@
 		E992E69B1802B09B00ED032A /* DateKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateKeyboardView.xib; sourceTree = "<group>"; };
 		E992E6A01802B45500ED032A /* DateKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateKeyboardViewController.h; sourceTree = "<group>"; };
 		E992E6A11802B45500ED032A /* DateKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateKeyboardViewController.m; sourceTree = "<group>"; };
+		E996623F181A6781008727D8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E9966240181A6781008727D8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E9966241181A6781008727D8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E9966242181A6781008727D8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E9966243181A6781008727D8 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E9966244181A6781008727D8 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E9966245181A6781008727D8 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E9966246181A6781008727D8 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E9966247181A6781008727D8 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E9966248181A6781008727D8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E9B13E0B17FE6AF40089B860 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
 		E9B13E0C17FE6AF40089B860 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
 		E9B13E0D17FE6AF40089B860 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
@@ -160,16 +176,6 @@
 		E9B13E1B17FE77CA0089B860 /* ItemSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSettingModel.h; sourceTree = "<group>"; };
 		E9B13E1C17FE77CA0089B860 /* ItemSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSettingModel.m; sourceTree = "<group>"; };
 		E9B13E1E17FE77E60089B860 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E9B13E2517FEA5940089B860 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		E9B13E2617FEA5940089B860 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		E9B13E2717FEA5940089B860 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		E9B13E2817FEA5940089B860 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		E9B13E2917FEA5940089B860 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		E9B13E2A17FEA5940089B860 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		E9B13E2B17FEA5940089B860 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		E9B13E2C17FEA5940089B860 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		E9B13E2E17FEA5940089B860 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		E9B13E2F17FEA5940089B860 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E9B13E3617FEA5C40089B860 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		E9B13E3817FEAA170089B860 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		E9B13E3917FEAA170089B860 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
@@ -343,6 +349,9 @@
 				E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */,
 				E949E69F181132C80050FAD9 /* OutputSettingEditViewController.h */,
 				E949E6A0181132C80050FAD9 /* OutputSettingEditViewController.m */,
+				E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */,
+				E98D7C3E1814CDC600BB301C /* OutputSettingItemViewController.h */,
+				E98D7C3F1814CDC600BB301C /* OutputSettingItemViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -358,6 +367,14 @@
 				E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		E98D7C4418152F6700BB301C /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E98D7C4118152F6300BB301C /* ModalViewDelegate.h */,
+			);
+			name = delegate;
 			sourceTree = "<group>";
 		};
 		E99101CE18044FEC00F3B048 /* toast */ = {
@@ -433,16 +450,16 @@
 		E9B13E2417FEA5940089B860 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
-				E9B13E2517FEA5940089B860 /* FMDatabase.h */,
-				E9B13E2617FEA5940089B860 /* FMDatabase.m */,
-				E9B13E2717FEA5940089B860 /* FMDatabaseAdditions.h */,
-				E9B13E2817FEA5940089B860 /* FMDatabaseAdditions.m */,
-				E9B13E2917FEA5940089B860 /* FMDatabasePool.h */,
-				E9B13E2A17FEA5940089B860 /* FMDatabasePool.m */,
-				E9B13E2B17FEA5940089B860 /* FMDatabaseQueue.h */,
-				E9B13E2C17FEA5940089B860 /* FMDatabaseQueue.m */,
-				E9B13E2E17FEA5940089B860 /* FMResultSet.h */,
-				E9B13E2F17FEA5940089B860 /* FMResultSet.m */,
+				E996623F181A6781008727D8 /* FMDatabase.h */,
+				E9966240181A6781008727D8 /* FMDatabase.m */,
+				E9966241181A6781008727D8 /* FMDatabaseAdditions.h */,
+				E9966242181A6781008727D8 /* FMDatabaseAdditions.m */,
+				E9966243181A6781008727D8 /* FMDatabasePool.h */,
+				E9966244181A6781008727D8 /* FMDatabasePool.m */,
+				E9966245181A6781008727D8 /* FMDatabaseQueue.h */,
+				E9966246181A6781008727D8 /* FMDatabaseQueue.m */,
+				E9966247181A6781008727D8 /* FMResultSet.h */,
+				E9966248181A6781008727D8 /* FMResultSet.m */,
 			);
 			name = fmdb;
 			path = ../../../../Desktop/src;
@@ -464,6 +481,7 @@
 		E9B13E4217FEB8D40089B860 /* amd */ = {
 			isa = PBXGroup;
 			children = (
+				E98D7C4418152F6700BB301C /* delegate */,
 				E949E68B181019020050FAD9 /* controller */,
 				E9B1EA7E1806B88800DD6CFC /* common */,
 				E9EEA6261800F93600FFAF63 /* util */,
@@ -629,6 +647,7 @@
 				E9BF9CF818053E6F0055FBA3 /* 709-plus.png in Resources */,
 				E949E6A5181133E90050FAD9 /* 739-question@2x.png in Resources */,
 				E9578F0917FDB2F60035B289 /* InfoPlist.strings in Resources */,
+				E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */,
 				E9BF9CF418053E5B0055FBA3 /* 730-envelope.png in Resources */,
 				E992E69C1802B09B00ED032A /* DateKeyboardView.xib in Resources */,
 				E9578F1217FDB2F60035B289 /* Main.storyboard in Resources */,
@@ -654,41 +673,42 @@
 				E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */,
 				E9D54F66180BED4300167C19 /* InputViewSwitchCell.m in Sources */,
 				E9B13E1717FE77CA0089B860 /* ItemValueModel.m in Sources */,
+				E9966249181A6781008727D8 /* FMDatabase.m in Sources */,
 				E949E6981810337F0050FAD9 /* PickerDataSource.m in Sources */,
 				E9578F1517FDB2F60035B289 /* CostInputViewController.m in Sources */,
+				E996624D181A6781008727D8 /* FMResultSet.m in Sources */,
 				E9BF9CFC180543520055FBA3 /* CostListViewController.m in Sources */,
 				E9578F0F17FDB2F60035B289 /* AppDelegate.m in Sources */,
 				E9B13E4A17FEBA000089B860 /* Model.m in Sources */,
-				E9B13E3017FEA5940089B860 /* FMDatabase.m in Sources */,
+				E996624C181A6781008727D8 /* FMDatabaseQueue.m in Sources */,
 				E9BF9D051805B7280055FBA3 /* TableUtil.m in Sources */,
 				E9D54F6B180C273200167C19 /* InputSettingListViewController.m in Sources */,
+				E98D7C401814CDC600BB301C /* OutputSettingItemViewController.m in Sources */,
 				E9B13E1D17FE77CA0089B860 /* ItemSettingModel.m in Sources */,
 				E9B13E3E17FEAE050089B860 /* TravelCostDao.m in Sources */,
-				E9B13E3317FEA5940089B860 /* FMDatabaseQueue.m in Sources */,
 				E9B13E6118005BD60089B860 /* ItemValueDao.m in Sources */,
 				E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */,
 				E9BF9D0218055A8E0055FBA3 /* ModelManager.m in Sources */,
 				E9B13E1A17FE77CA0089B860 /* TravelCostModel.m in Sources */,
-				E9B13E3117FEA5940089B860 /* FMDatabaseAdditions.m in Sources */,
 				E9578F0B17FDB2F60035B289 /* main.m in Sources */,
 				E9B13E0F17FE6AF40089B860 /* MJPopupBackgroundView.m in Sources */,
 				E99101D118044FFF00F3B048 /* iToast.m in Sources */,
 				E9EEA6291800F95700FFAF63 /* StringUtil.m in Sources */,
 				E949E69E1810C79A0050FAD9 /* OutputSettingListViewCell.m in Sources */,
+				E996624A181A6781008727D8 /* FMDatabaseAdditions.m in Sources */,
 				E9B13E5B18004CC00089B860 /* DateTimeUtil.m in Sources */,
 				E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */,
-				E9B13E3517FEA5940089B860 /* FMResultSet.m in Sources */,
 				E992E69A18029C1E00ED032A /* InputViewCell.m in Sources */,
 				E9BF9CFF1805475F0055FBA3 /* ListViewCell.m in Sources */,
 				E9B13E4117FEB8C80089B860 /* Dao.m in Sources */,
 				E9B13E5E18005B780089B860 /* ItemSettingDao.m in Sources */,
 				E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */,
-				E9B13E3217FEA5940089B860 /* FMDatabasePool.m in Sources */,
 				E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */,
 				E99101C718044AC300F3B048 /* ViewUtil.m in Sources */,
 				E9B13E3A17FEAA170089B860 /* DatabaseManager.m in Sources */,
 				E949E6A1181132C80050FAD9 /* OutputSettingEditViewController.m in Sources */,
 				E9B13E1017FE6AF40089B860 /* UIViewController+MJPopupViewController.m in Sources */,
+				E996624B181A6781008727D8 /* FMDatabasePool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

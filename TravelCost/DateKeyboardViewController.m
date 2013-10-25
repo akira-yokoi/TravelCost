@@ -34,7 +34,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)valueChanged:(id)sender {
-    NSLog(@"ValueChanged");
+
+- (IBAction)okPressed:(id)sender {
+    NSLog(@"okPressed");
 }
 @end

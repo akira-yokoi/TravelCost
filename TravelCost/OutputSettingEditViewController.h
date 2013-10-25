@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OutputSettingEditViewController : UIViewController
+#import "OutputSettingItemViewController.h"
+#import "ModalViewDelegate.h"
+
+@interface OutputSettingEditViewController : UIViewController<ModalViewDelegate>
 - (IBAction)helpSelected:(id)sender;
 - (IBAction)addStringSelected:(id)sender;
 - (IBAction)addItemSelected:(id)sender;
