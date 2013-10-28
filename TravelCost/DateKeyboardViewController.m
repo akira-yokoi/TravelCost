@@ -26,16 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _okButton.action = @selector( okSelected);
+}
+
+- (void)okSelected{
+    NSLog( @"AAA");
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (IBAction)okPressed:(id)sender {
-    NSLog(@"okPressed");
 }
 @end

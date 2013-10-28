@@ -12,11 +12,13 @@
 #import "ItemSettingDao.h"
 #import "ItemSettingModel.h"
 #import "ModalViewDelegate.h"
+#import "ReflectionUtil.h"
 
 @interface OutputSettingItemViewController : BaseViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) NSString *outputSetting;
 @property (nonatomic) id<ModalViewDelegate> delegate;
+@property (nonatomic) id defaultValue;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *fixStringText;

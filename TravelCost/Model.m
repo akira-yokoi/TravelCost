@@ -40,6 +40,40 @@
     [NSException raise:[NSString stringWithFormat:@"%@ is not found.", columnName] format:nil];
 }
 
+-(BOOL) isEqual:(id)other{
+    if (other == self)
+        return YES;
+	if (!other || ![other isKindOfClass:[self class]])
+        return NO;
+    
+    Model *otherModel = (Model *) other;
+    NSString *idColumnName = [ self getIdColumnName];
+    NSString *fieldName = [StringUtil toFieldName:idColumnName];
+    id selfId = [self valueForKey:fieldName];
+    id otherId = [otherModel valueForKey:fieldName];
+
+    if( selfId == otherId){
+        return YES;
+    }
+	return NO;
+}
+
+- (NSUInteger)hash{
+    int multiplier = 37; //
+    
+    /** 任意の値を初期値とする */
+    long result = 17;
+    
+    // boolean
+    NSString *idColumnName = [ self getIdColumnName];
+    NSObject *selfId = [self getValue:idColumnName];
+    
+    if ( selfId != nil) {
+        result = multiplier * result + selfId.hash;
+    }
+    return result;
+}
+
 - (NSString *) description{
     NSMutableString *description = [[NSMutableString alloc] init];
     

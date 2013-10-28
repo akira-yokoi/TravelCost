@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DateTimeUtil.h"
+#import "StringUtil.h"
 
 @interface Model : NSObject
 

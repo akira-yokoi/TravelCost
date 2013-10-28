@@ -10,9 +10,8 @@
 
 @interface DateKeyboardViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *okButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-- (IBAction)okPressed:(id)sender;
 
 @end

@@ -9,7 +9,9 @@
 #import "OutputSettingEditViewController.h"
 
 @interface OutputSettingEditViewController ()
-
+{
+    NSMutableArray *values;
+}
 @end
 
 @implementation OutputSettingEditViewController
@@ -26,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    values = [[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
 }
 
@@ -38,35 +42,71 @@
 - (IBAction)helpSelected:(id)sender {
 }
 
--(void)modalViewDidDissmissed{
-    NSLog(@"AAA");
-}
-
-- (IBAction)addStringSelected:(id)sender {
+- (IBAction)addItemSelected:(id)sender {
     //UIViewControllerを継承したModalViewController
     OutputSettingItemViewController *mvc = [[OutputSettingItemViewController alloc] initWithNibName:@"OutputSettingItemView" bundle:nil];
     mvc.delegate = self;
     [self presentViewController:mvc animated:YES completion:nil];
-    
-    /*
-    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Twitter  Login" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
-    
-    UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 15.0, 260.0, 25.0)];
-    myTextField.placeholder=@"Enter User Name";
-//    [myTextField becomeFirstResponder];
-    [myTextField setBackgroundColor:[UIColor yellowColor]];
-//    myTextField.textAlignment=UITextAlignmentCenter;
-    
-    // myTextField.layer.cornerRadius=5.0; Use this if you have added QuartzCore framework
-    
-    [myAlertView addSubview:myTextField];
-    [myAlertView show];
-     */
-}
-
-- (IBAction)addItemSelected:(id)sender {
 }
 
 - (IBAction)saveSelected:(id)sender {
 }
+
+#pragma mark Table
+/** セクションの数 */
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+/** データの数 */
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSInteger count = [values count];
+    return count;
+}
+
+/** セルの作成 */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *cellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    // セルが作成されていないか?
+    if (!cell) { // yes
+        // セルを作成
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    // セルにテキストを設定
+    id value = values[ indexPath.row];
+    if( [ReflectionUtil instanceof:value class:[ ItemSettingModel class]]){
+        ItemSettingModel *settingModel = (ItemSettingModel *) value;
+        cell.textLabel.text = settingModel.name;
+    }
+    if( [ReflectionUtil instanceof:value class:[ NSString class]]){
+        NSString *fixStr = (NSString *) value;
+        cell.textLabel.text = fixStr;
+    }
+    
+    return cell;
+}
+
+/** セルの選択 */
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    id value = values[ indexPath.row];
+    //UIViewControllerを継承したModalViewController
+    OutputSettingItemViewController *mvc = [[OutputSettingItemViewController alloc] initWithNibName:@"OutputSettingItemView" bundle:nil];
+    mvc.delegate = self;
+    mvc.defaultValue = value;
+    [self presentViewController:mvc animated:YES completion:nil];
+}
+
+
+#pragma mark Delegate
+- (void) ok:(id)value{
+    [values addObject:value];
+    [_tableView reloadData];
+}
+
+- (void)cancel{
+}
+
 @end

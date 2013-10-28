@@ -26,9 +26,6 @@
     
     values = [[NSMutableArray alloc] init];
     
-    // ＃＃＃FocusIndexPathがとれない＃＃＃
-    focusIndexPath = [NSIndexPath indexPathForRow:7 inSection:0];
-    
     // スクリーンサイズの取得
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     appContentHeight = screenRect.size.height;
@@ -102,13 +99,15 @@
         InputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
 
         cell.titleLabel.text = [setting name];
-        cell.valueText.text = [value value];
-        cell.valueText.delegate = self;
+
+        UITextField *valueText = [cell valueText];
+        valueText.text = [value value];
+        valueText.delegate = self;
+        valueText.tag = indexPath.row;
         
         // データ型が日付の場合
         if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
             DateKeyboardViewController *vc = [[DateKeyboardViewController alloc] init];
-            UITextField *valueText = [cell valueText];
             
             double dValue = [strValue doubleValue];
             if( dValue != 0){
@@ -120,7 +119,6 @@
         // データ型が選択方式の場合
         else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
             PickerKeyboardViewController *vc = [[PickerKeyboardViewController alloc] init];
-            UITextField *valueText = [cell valueText];
             valueText.inputView = [vc view];
         }
         
@@ -130,6 +128,12 @@
 
 /** セルの選択 */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    // 編集中の行を保持しておく
+    focusIndexPath = [NSIndexPath indexPathForRow:[textField tag] inSection:0];
+    return YES;
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{

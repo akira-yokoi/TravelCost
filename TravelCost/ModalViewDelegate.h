@@ -10,6 +10,8 @@
 
 @protocol ModalViewDelegate <NSObject>
 
-- (void)modalViewDidDissmissed;
+- (void)ok:(id)value;
+
+- (void)cancel;
 
 @end

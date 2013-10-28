@@ -6,9 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateKeyboardViewController">
             <connections>
-                <outlet property="cancelButton" destination="it6-Ze-F9t" id="jqw-PZ-Z6k"/>
+                <outlet property="cancelButton" destination="it6-Ze-F9t" id="StO-eY-Uyn"/>
                 <outlet property="datePicker" destination="Dfw-EC-n4A" id="e9C-SM-Ctw"/>
-                <outlet property="okButton" destination="AKZ-Q7-biK" id="2wS-Ik-SQL"/>
+                <outlet property="okButton" destination="AKZ-Q7-biK" id="FqI-id-V2i"/>
                 <outlet property="view" destination="1" id="3h0-gB-gVo"/>
             </connections>
         </placeholder>
@@ -23,11 +23,7 @@
                     <items>
                         <barButtonItem title="cancel" id="it6-Ze-F9t"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TT8-kM-3Do"/>
-                        <barButtonItem title="ok" id="AKZ-Q7-biK">
-                            <connections>
-                                <action selector="okPressed:" destination="-1" id="xhE-qj-f7s"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem title="ok" id="AKZ-Q7-biK"/>
                     </items>
                 </toolbar>
                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dfw-EC-n4A">
