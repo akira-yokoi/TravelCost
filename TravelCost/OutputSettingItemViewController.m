@@ -36,8 +36,6 @@
     _inputItemPicker.dataSource = self;
     _inputItemPicker.delegate = self;
     _fixStringText.delegate = self;
-
-    [self updateVisible];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -58,6 +56,7 @@
             [_segmentedControl setSelectedSegmentIndex:1];
         }
     }
+    [self updateVisible];
 }
 
 - (void)didReceiveMemoryWarning

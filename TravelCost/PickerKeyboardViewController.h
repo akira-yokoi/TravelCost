@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickerKeyboardViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+#import "StringUtil.h"
+#import "KeyboardViewController.h"
+
+@interface PickerKeyboardViewController : KeyboardViewController
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
+
+- (IBAction)cancelSelected:(id)sender;
+- (IBAction)okSelected:(id)sender;
 
 @end

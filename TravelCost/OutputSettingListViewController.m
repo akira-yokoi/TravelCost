@@ -9,87 +9,41 @@
 #import "OutputSettingListViewController.h"
 
 @interface OutputSettingListViewController ()
-{
-    NSMutableArray *values;
-}
+
 @end
 
 @implementation OutputSettingListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+static NSString * const EMPTY_STR  = @"";
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self reload];
-    
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
-    [super setEditing:editing animated:animated];
-    [_settingTableView setEditing:editing animated:animated];
-    
-    // 編集終了
-    if(! editing){
-        NSLog(@"編集終了");
-        
-        NSMutableDictionary *settingMap = [[NSMutableDictionary alloc] init];
-        for( ItemSettingModel *setting in values){
-            [settingMap setValue:setting forKey:setting.name];
-        }
-        
-        // 並び順を保存
-        ItemSettingDao *dao = [[ItemSettingDao alloc] init];
-        int orderNum = 1;
-        NSInteger sectionCnt = [self numberOfSectionsInTableView: _settingTableView];
-        for ( int section = 0; section < sectionCnt ; section++){
-            NSInteger numberOfRowInSection = [ _settingTableView numberOfRowsInSection:section];
-            
-            for( int row = 0; row < numberOfRowInSection; row++){
-                NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
-                
-                OutputSettingListViewCell *cell = (OutputSettingListViewCell *)[_settingTableView cellForRowAtIndexPath:path];
-                NSString *settingName = cell.nameLabel.text;
-                
-                // 並び順を更新して保存
-                ItemSettingModel *settingModel = [settingMap valueForKey:settingName];
-                settingModel.outputOrderNum = orderNum++;
-                [dao saveModel:settingModel];
-            }
-        }
-    }
-}
-
-- (void) reload{
+- (NSArray *) getValues{
     ItemSettingDao *dao = [[ItemSettingDao alloc]init];
-    values = [dao list:nil order:ISM_COLUMN_OUTPUT_ORDER_NUM];
+    NSString *where = [NSString stringWithFormat:@"%@ != 0", ISM_COLUMN_OUTPUT_FLAG];
+    return [dao list:where order:ISM_COLUMN_OUTPUT_ORDER_NUM];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+- (UITableView *) getTableView{
+    return _settingTableView;
 }
 
-#pragma mark Table
-
-/** セクションの数 */
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+- (void) updateOrder{
+    int orderNum = 1;
+    
+    for( ItemSettingModel *model in values){
+        model.outputOrderNum = orderNum++;
+    }
+    // 並び順を保存
+    ItemSettingDao *dao = [[ItemSettingDao alloc] init];
+    [dao saveModels:values];
 }
 
-/** データの数 */
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger count = [values count];
-    return count;
+- (void) selectRow: (id)item{
+    ItemSettingModel *settingModel = (ItemSettingModel *)item;
+    if(! settingModel.inputFlag){
+        OutputSettingEditViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"OutputSettingEditViewController"];
+        mvc.settingModel = settingModel;
+        [[self navigationController] pushViewController:mvc animated:YES];
+    }
 }
 
 /** セルの作成 */
@@ -106,33 +60,18 @@
     // セルにテキストを設定
     ItemSettingModel *settingModel = values[ indexPath.row];
     cell.nameLabel.text = settingModel.name;
-    cell.detailLabel.text = settingModel.dataType;
     cell.onOffSwitch.on = settingModel.outputFlag;
     
     // 入力項目の場合はON/OFFのみで詳細はなし
     if( settingModel.inputFlag){
         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.detailLabel.text = settingModel.dataType;
     }
     // 出力項目の場合は詳細あり
     else{
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.detailLabel.text = EMPTY_STR;
     }
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // ここで追加・削除をさせないことを示す
-    return UITableViewCellEditingStyleNone;
-}
-
-- (BOOL)tableView:(UITableView *)tableView
-shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // 編集モードでインデントもしない
-    return NO;
-}
-
 @end

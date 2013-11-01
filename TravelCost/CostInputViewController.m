@@ -13,6 +13,9 @@
     NSMutableArray *values;
     NSInteger appContentHeight;
     NSIndexPath *focusIndexPath;
+    
+    KeyboardViewController *keyboardViewController;
+    NSMutableDictionary *rowItemSettingMap;
 }
 @property (strong, nonatomic) FMDatabase *db;
 
@@ -25,6 +28,7 @@
     [super viewDidLoad];
     
     values = [[NSMutableArray alloc] init];
+    rowItemSettingMap = [[NSMutableDictionary alloc] init];
     
     // スクリーンサイズの取得
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
@@ -85,6 +89,8 @@
     NSString *strValue = [value value];
     NSString *dataType = [setting dataType];
     
+    [rowItemSettingMap setObject:setting forKey: [StringUtil toStringLong:indexPath.row]];
+    
 
     if ( [dataType isEqualToString: ISM_DATA_TYPE_CHECK]){
         InputViewSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"switchCell" forIndexPath:indexPath];
@@ -97,7 +103,6 @@
     }
     else{
         InputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
-
         cell.titleLabel.text = [setting name];
 
         UITextField *valueText = [cell valueText];
@@ -107,32 +112,57 @@
         
         // データ型が日付の場合
         if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
-            DateKeyboardViewController *vc = [[DateKeyboardViewController alloc] init];
-            
             double dValue = [strValue doubleValue];
             if( dValue != 0){
                 NSDate *date = [DateTimeUtil getDate:[strValue doubleValue]];
                 cell.valueText.text = [DateTimeUtil getYYYYMD: date];
             }
-            valueText.inputView = [vc view];
         }
         // データ型が選択方式の場合
         else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
             PickerKeyboardViewController *vc = [[PickerKeyboardViewController alloc] init];
             valueText.inputView = [vc view];
         }
-        
         return cell;
     }
 }
+
 
 /** セルの選択 */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
+/** セルの編集開始 */
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSInteger rowNum = [textField tag];
     // 編集中の行を保持しておく
-    focusIndexPath = [NSIndexPath indexPathForRow:[textField tag] inSection:0];
+    focusIndexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
+    
+    ItemSettingModel *setting = [rowItemSettingMap valueForKey: [StringUtil toStringLong:rowNum]];
+
+    NSString *dataType = [setting dataType];
+    // データ型が日付の場合
+    if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
+        keyboardViewController = [[DateKeyboardViewController alloc] init];
+        keyboardViewController.okBlock = ^{
+            DateKeyboardViewController *dateKeyboard = ((DateKeyboardViewController *)keyboardViewController);
+            textField.text = [DateTimeUtil getYYYYMD: dateKeyboard.datePicker.date];
+            [textField resignFirstResponder];
+        };
+    }
+    // データ型が選択方式の場合
+    else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
+        keyboardViewController = [[PickerKeyboardViewController alloc] init];
+    }
+    
+    // キャンセル時の処理
+    keyboardViewController.cancelBlock = ^{
+        [textField resignFirstResponder];
+    };
+
+    
+    textField.inputView = [keyboardViewController view];
+    
     return YES;
 }
 
@@ -195,8 +225,7 @@
     [self.tableView scrollRectToVisible:rect animated:YES];
 }
 
-- (void)keybaordWillHide:(NSNotification*)notification
-{
+- (void)keybaordWillHide:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];
     NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve animationCurve = [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
@@ -207,6 +236,8 @@
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     };
     [UIView animateWithDuration:duration delay:0.0 options:(animationCurve << 16) animations:animations completion:nil];
+    
+    keyboardViewController = nil;
 }
 
 #pragma mark Logic
@@ -220,8 +251,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [ViewUtil showToast: [StringUtil toStringInt:buttonIndex]];
-    
     //遷移先のインスタンスを生成
     if ( buttonIndex == 1){
         InputSettingListViewController *inputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InputSettingListViewController"];
@@ -396,7 +425,7 @@
     
     // エラーを表示して終了
     if( errorMsg.length != 0){
-        [ViewUtil showAlert:@"入力エラー" message:errorMsg buttonTitle:@"OK"];
+        [ViewUtil showMessage:@"入力エラー" message:errorMsg];
     }
     else{
         // 保存
@@ -427,7 +456,9 @@
     
     // 初期データを取得する
     ItemSettingDao *dao = [[ItemSettingDao alloc] init];
-    NSMutableArray *settings = [dao list];
+    NSString *where = [NSString stringWithFormat:@"%@ != 0", ISM_COLUMN_INPUT_FLAG ];
+    NSMutableArray *settings = [dao list:where order:ISM_COLUMN_INPUT_ORDER_NUM];
+                                
     for( ItemSettingModel *setting in settings){
         ItemValueModel *value = [settingValueMap valueForKey:[ StringUtil toStringNumber:setting.rowId]];
         if( value == nil){

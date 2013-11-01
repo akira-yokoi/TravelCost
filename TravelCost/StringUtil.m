@@ -14,7 +14,7 @@ static NSString * const COLUMN_NAME_SEPARATOR  = @"_";
 static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
 
 + (BOOL) isEmpty:(NSString *)value{
-    if( !value || value.length == 0){
+    if( !value || [value isEqual:[NSNull null]] || value.length == 0){
         return YES;
     }
     return NO;
@@ -24,6 +24,18 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
     return [str1 isEqualToString:str2];
 }
 
++ (BOOL) isIntNumber:(NSString *)strNumber{
+    if( [StringUtil isEmpty: strNumber]){
+        return NO;
+    }
+    NSCharacterSet *digitCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    NSScanner *aScanner = [NSScanner localizedScannerWithString:strNumber];
+    [aScanner setCharactersToBeSkipped:nil];
+        
+    [aScanner scanCharactersFromSet:digitCharSet intoString:NULL];
+    return [aScanner isAtEnd];
+}
 
 + (NSString *) toFieldName: (NSString *) columnName{
     NSInteger length = [columnName length];
@@ -118,12 +130,24 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
     return columnName;
 }
 
++ (NSNumber *) toInteger: (NSString *) str{
+    if( [StringUtil isIntNumber:str]){
+        NSNumber *num = [NSNumber numberWithInt:str.intValue];
+        return num;
+    }
+    return nil;
+}
+
 + (NSString *) toStringDouble: (double) value{
     return [NSString stringWithFormat:@"%g", value];
 }
 
 + (NSString *) toStringInt: (int) value{
     return [NSString stringWithFormat:@"%d", value];
+}
+
++ (NSString *) toStringLong: (long) value{
+    return [NSString stringWithFormat:@"%ld", value];
 }
 
 + (NSString *) toStringFloat: (float) value{
@@ -155,6 +179,21 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
         return @"";
     }
     return value;
+}
+
++ (NSArray *) parseCSV: (NSString *) csv{
+    return [csv componentsSeparatedByString:@","];
+}
+
++ (NSString *) createCSV: (NSArray *) items{
+    NSMutableString *csv = [[NSMutableString alloc] init];
+    for( NSString *item in items){
+        if( item.length != 0){
+            [csv appendString: @","];
+        }
+        [csv appendString:item];
+    }
+    return csv;
 }
 
 @end

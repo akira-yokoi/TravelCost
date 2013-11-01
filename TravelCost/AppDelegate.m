@@ -124,7 +124,7 @@ NSString *const DB_VERSION_KEY = @"DB_VERSION";
             ItemSettingModel *model = [[ItemSettingModel alloc]init];
             [model setDataType: ISM_DATA_TYPE_Num];
             [model setName:@"金額"];
-            [model setIntLength: 5];
+            [model setIntLength: [NSNumber numberWithInt:5]];
             [model setDecimalLength: 0];
             [model setDefaultValue:@"片道"];
             [model setInputOrderNum: orderNum];

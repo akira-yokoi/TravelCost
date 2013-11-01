@@ -11,13 +11,16 @@
 #import "OutputSettingItemViewController.h"
 #import "ModalViewDelegate.h"
 #import "ReflectionUtil.h"
+#import "ViewUtil.h"
 
-@interface OutputSettingEditViewController : UIViewController<ModalViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface OutputSettingEditViewController : UIViewController<ModalViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) ItemSettingModel *settingModel;
 
 - (IBAction)helpSelected:(id)sender;
 - (IBAction)addItemSelected:(id)sender;
 - (IBAction)saveSelected:(id)sender;
+- (IBAction)deleteSelected:(id)sender;
 
 @end

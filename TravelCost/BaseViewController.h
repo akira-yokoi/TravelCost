@@ -10,4 +10,6 @@
 
 @interface BaseViewController : UIViewController<UITextFieldDelegate>
 
+- (void) autoScroll: (UIScrollView *) scrollView;
+
 @end

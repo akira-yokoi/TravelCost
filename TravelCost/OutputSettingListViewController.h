@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ItemSettingModel.h"
 #import "ItemSettingDao.h"
-#import "BaseViewController.h"
+#import "ListViewController.h"
 #import "OutputSettingListViewCell.h"
+#import "OutputSettingEditViewController.h"
 
-@interface OutputSettingListViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface OutputSettingListViewController : ListViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 

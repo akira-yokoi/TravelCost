@@ -33,6 +33,8 @@
 // 更新系オペレーション
 - (BOOL) saveModel:( Model *)model;
 - (BOOL) saveModels:( NSArray *)models;
+- (BOOL) deleteModel: (Model *)model;
+- (BOOL) deleteModels:( NSArray *)models;
 
 // SQLの生成
 -( NSString *) createInsertSql:(Model *)model;

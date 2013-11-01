@@ -78,8 +78,6 @@
 }
 
 - (int) getMax:(NSString *) columnName{
-    NSString *tableName = [modelManager getTableName: clazz];
-
     DatabaseManager *db = [DatabaseManager instance];
     FMDatabase *fmdb = [db connect];
     [fmdb open];
@@ -211,6 +209,52 @@
     return isSuccess;
 }
 
+
+
+- (BOOL) deleteModel:( Model *)model{
+    NSArray *models = @[ model];
+    return [self deleteModels:models];
+}
+
+- (BOOL) deleteModels:( NSArray *)models{
+    DatabaseManager *db = [DatabaseManager instance];
+    FMDatabase *fmdb = [db connect];
+    
+    [fmdb open];
+    [fmdb beginTransaction];
+    
+    BOOL isSuccess = YES;
+    
+    for( Model *model in models){
+        // PK名
+        NSString *idColumnName = [model getIdColumnName];
+        
+        // PKの値
+        NSNumber *rowId = [model valueForKey:[ StringUtil toFieldName: idColumnName]];
+        NSMutableArray *values = [[NSMutableArray alloc] init];
+        
+        if( rowId != nil){
+            NSString *deleteSql = [self createDeleteSql:model];
+            [ values addObject:rowId];
+            
+            if(! [fmdb executeUpdate:deleteSql withArgumentsInArray:values]){
+                isSuccess = NO;
+            }
+        }
+    }
+    
+    if( isSuccess){
+        [fmdb commit];
+    }
+    else{
+        [fmdb rollback];
+    }
+    
+    [fmdb close];
+    return isSuccess;
+}
+
+
 -( NSArray *) getValues:(Model *)model columnNames:(NSArray *)columnNames{
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:columnNames.count];
     
@@ -276,6 +320,15 @@
     [sql appendString: idColumnName];
     [sql appendString: @" = ? "];
     return sql;
+}
+
+-( NSString *) createDeleteSql:(Model *)model{
+    // テーブル名
+    NSString *tableName = [model getTableName];
+    // PK名
+    NSString *idColumnName = [model getIdColumnName];
+    
+    return [NSString stringWithFormat:@"delete from %@ where %@ = ?", tableName, idColumnName];
 }
 
 -( NSString *) createValueName: (NSArray *)valueColumnNames{

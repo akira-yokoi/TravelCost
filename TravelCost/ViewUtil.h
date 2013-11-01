@@ -11,7 +11,10 @@
 
 @interface ViewUtil : NSObject
 
-+(void) showAlert:(NSString *)title message:(NSString *)message buttonTitle:(NSString *) buttonTitle;
++(void) showMessage:(NSString *)title message:(NSString *)message;
++(void) showConfirm:(NSString *)title message:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate;
 +(void) showToast:(NSString *)message;
+
++(void) closeView:(UIViewController *)vc;
 
 @end

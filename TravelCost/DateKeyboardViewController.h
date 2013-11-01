@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateKeyboardViewController : UIViewController
+#import "DateTimeUtil.h"
+#import "KeyboardViewController.h"
+
+@interface DateKeyboardViewController : KeyboardViewController
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *okButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
+- (IBAction)okSelected:(id)sender;
+- (IBAction)cancelSelected:(id)sender;
 
 @end

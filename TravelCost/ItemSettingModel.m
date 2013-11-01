@@ -11,11 +11,11 @@
 
 @implementation ItemSettingModel
 
-NSString * const ISM_DATA_TYPE_STAR5 = @"Star5";
-NSString * const ISM_DATA_TYPE_STAR4 = @"Star4";
-NSString * const ISM_DATA_TYPE_STAR3 = @"Star3";
-NSString * const ISM_DATA_TYPE_STAR2 = @"Star2";
-NSString * const ISM_DATA_TYPE_STAR1 = @"Star1";
+//NSString * const ISM_DATA_TYPE_STAR5 = @"Star5";
+//NSString * const ISM_DATA_TYPE_STAR4 = @"Star4";
+//NSString * const ISM_DATA_TYPE_STAR3 = @"Star3";
+//NSString * const ISM_DATA_TYPE_STAR2 = @"Star2";
+//NSString * const ISM_DATA_TYPE_STAR1 = @"Star1";
 NSString * const ISM_DATA_TYPE_STRING = @"String";
 NSString * const ISM_DATA_TYPE_CHECK = @"Check";
 NSString * const ISM_DATA_TYPE_Num = @"Num";

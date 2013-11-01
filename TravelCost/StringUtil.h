@@ -14,15 +14,21 @@
 
 + (BOOL)equals: (NSString *)str1 str2:(NSString *) str2;
 
++ (BOOL)isIntNumber: (NSString *)strNumber;
+
 + (NSString *) toTableName: (NSString *) className;
 
 + (NSString *) toFieldName: (NSString *) columnName;
 
 + (NSString *) toColumnName: (NSString *) fieldName;
 
++ (NSNumber *) toInteger: (NSString *) str;
+
 + (NSString *) toStringDouble: (double) value;
 
 + (NSString *) toStringInt: (int) value;
+
++ (NSString *) toStringLong: (long) value;
 
 + (NSString *) toStringFloat: (float) value;
 
@@ -33,5 +39,7 @@
 + (BOOL) contains: (NSString *)value keyword:(NSString *)keyword;
 
 + (NSString *) killNull: (NSString *) value;
+
++ (NSArray *) parseCSV: (NSString *) csv;
 
 @end
