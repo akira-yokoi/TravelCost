@@ -10,6 +10,15 @@
 
 @interface BaseViewController : UIViewController<UITextFieldDelegate>
 
+
 - (void) autoScroll: (UIScrollView *) scrollView;
 
+- (void) addInputField:(UITextField *) inputField;
+
+- (void) clearInputField;
+
+- (void) updateReturnKey;
+
+- (void) focusNextField:(UITextField *)textField;
+    
 @end

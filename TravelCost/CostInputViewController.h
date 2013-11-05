@@ -7,31 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ItemSettingDao.h"
-#import "ItemValueDao.h"
-#import "TravelCostDao.h"
 
-#import "ItemValueModel.h"
-#import "ItemSettingModel.h"
-#import "TravelCostModel.h"
+#import "BaseViewController.h"
 
-#import "InputViewCell.h"
-#import "InputViewSwitchCell.h"
-
-#import "DateKeyboardViewController.h"
-#import "PickerKeyboardViewController.h"
-
-#import "FMDatabase.h"
-
-#import "ViewUtil.h"
-#import "DateTimeUtil.h"
-#import "TableUtil.h"
-#import "iToast.h"
-
-#import "InputSettingListViewController.h"
-#import "OutputSettingListViewController.h"
-
-@interface CostInputViewController : UIViewController<UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface CostInputViewController : BaseViewController<UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @property (strong, nonatomic) NSNumber *travelCostRowId;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -8,6 +8,8 @@
 
 #import "OutputSettingEditViewController.h"
 
+#import "StringUtil.h"
+
 @interface OutputSettingEditViewController ()
 {
     NSMutableArray *values;
@@ -129,6 +131,11 @@
     }
     _settingModel.name = title;
     _settingModel.outputSetting = outputCsv;
+    
+    if( [StringUtil isEmpty: outputCsv]){
+        [ViewUtil showMessage:nil message:@"項目を設定してください"];
+        return;
+    }
     
     [dao saveModel: _settingModel];
     

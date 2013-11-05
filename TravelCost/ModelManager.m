@@ -39,10 +39,12 @@ static NSString * const COLUMN_INVALID_PRFFIX  = @"_";
 - (id)init{
     self = [super init];
     
-    classTableNameMap = [[NSMutableDictionary alloc] init];
-    classPropertyMap = [[NSMutableDictionary alloc] init];
-    classColumnNameMap = [[NSMutableDictionary alloc] init];
-    classValueColumnNameMap = [[NSMutableDictionary alloc] init];
+    if( self){
+        classTableNameMap = [[NSMutableDictionary alloc] init];
+        classPropertyMap = [[NSMutableDictionary alloc] init];
+        classColumnNameMap = [[NSMutableDictionary alloc] init];
+        classValueColumnNameMap = [[NSMutableDictionary alloc] init];
+    }
     
     return self;
 }

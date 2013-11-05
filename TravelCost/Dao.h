@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "FMDatabase.h"
 #import "Model.h"
-#import "DatabaseManager.h"
-#import "ModelManager.h"
-#import "StringUtil.h"
-#import "ModelManager.h"
 
 @interface Dao : NSObject
 {

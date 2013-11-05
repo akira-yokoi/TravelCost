@@ -8,6 +8,8 @@
 
 #import "OutputSettingItemViewController.h"
 
+#import "ViewUtil.h"
+
 @interface OutputSettingItemViewController ()
 {
     NSMutableArray *inputItems;
@@ -109,6 +111,10 @@
     }
     else if( segmentIndex == 1){
         value = _fixStringText.text;
+        if( [StringUtil isEmpty:value]){
+            [ViewUtil showMessage:nil message:@"文字列を設定してください"];
+            return;
+        }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
     [_delegate ok: value];

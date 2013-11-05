@@ -21,6 +21,15 @@ NSString * const IVM_COLUMN_VALUE = @"value";
 + (ItemValueModel *) initFromSetting:(ItemSettingModel *)setting{
     ItemValueModel *value = [[ItemValueModel alloc] init];
     [value setItemSettingId: [setting rowId]];
+    
+    // デフォルト値の設定
+    if( [StringUtil equals:setting.dataType str2:ISM_DATA_TYPE_DATE]){
+        value.value = [StringUtil toStringDouble: [[NSDate date] timeIntervalSince1970]];
+    }
+    else{
+        value.value = setting.defaultValue;
+    }
+    
     return value;
 }
 

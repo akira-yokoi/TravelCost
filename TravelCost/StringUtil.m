@@ -160,10 +160,38 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
 
 + (NSString *) addComma:(int) value{
     NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
-    [format setNumberStyle:NSNumberFormatterDecimalStyle];
-    [format setGroupingSeparator:@","];
-    [format setGroupingSize:3];
-    return [format stringForObjectValue:[NSNumber numberWithInt:value]];
+    [format setPositiveFormat:@"#,##0"];
+    return [format stringFromNumber: [NSNumber numberWithInt:value]];
+}
+
++ (NSString *) addComma:(double) value decimalLength:(int)decimalLength{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSMutableString *format = [[NSMutableString alloc] init];
+    [format appendString: @"#,###"];
+    if( decimalLength > 0){
+        [format appendString: @"."];
+    }
+    for( int cnt = 0; cnt < decimalLength; cnt++){
+        [format appendString:@"#"];
+    }
+    [formatter setPositiveFormat:format];
+    return [formatter stringFromNumber: [NSNumber numberWithDouble:value]];
+}
+
++ (NSString *) addCommaToString:(NSString *) value decimalLength:(int)decimalLength{
+    return [StringUtil addComma:[value doubleValue] decimalLength:decimalLength];
+}
+
++ (NSString *) addCommaToString:(NSString *)str{
+    return [StringUtil addComma:(int)[str integerValue]];
+}
+
++ (NSString *) removeComma:(NSString *)str{
+    return [StringUtil replaceAll:str oldStr:@"," newStr:@""];
+}
+
++ (NSString *) replaceAll: (NSString *) target oldStr:(NSString *)oldStr newStr:(NSString *)newStr{
+    return [target stringByReplacingOccurrencesOfString:oldStr withString:newStr];
 }
 
 + (BOOL) contains:(NSString *)value keyword:(NSString *)keyword{
@@ -175,7 +203,7 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
 }
 
 + (NSString *) killNull: (NSString *) value{
-    if( value == nil || [value isEqual:[NSNull null]]){
+    if( [StringUtil isEmpty:value]){
         return @"";
     }
     return value;

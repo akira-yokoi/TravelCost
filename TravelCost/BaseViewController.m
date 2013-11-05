@@ -14,6 +14,7 @@
     UITextField *activeField;
     
     CGFloat adjustHeight;
+    NSMutableArray *inputFields;
 }
 @end
 
@@ -24,7 +25,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -32,6 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // 背景をキリックしたら、キーボードを隠す
+//    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+//    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,10 +52,70 @@
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{
-    // リターンキーでキーボードを非表示にする
-    [textField resignFirstResponder];
+    [self focusNextField:textField];
     return YES;
 }
+
+- (void) focusNextField:(UITextField *)textField{
+    [textField resignFirstResponder];
+    /*
+    UITextField *nextTextField = [self getNextFocusField:textField];
+    
+    if( nextTextField == nil){
+        // キーボードを閉じる
+        [textField resignFirstResponder];
+    }
+    else{
+        // 次のフィールドへフォーカスを合わせる
+        [textField resignFirstResponder];
+        [nextTextField becomeFirstResponder];
+    }
+    */
+}
+
+/**
+ * 次にフォーカスを合わせるべきフィールドを取得する
+ */
+- (UITextField *)getNextFocusField: (UITextField *)currentTextField{
+    if( inputFields == nil || [inputFields count] == 0){
+        return nil;
+    }
+    int nextIndex = (int)[inputFields indexOfObject:currentTextField] + 1;
+
+    while( [inputFields count] > nextIndex){
+        UITextField *nextTextField = inputFields[ nextIndex++];
+        if( nextTextField == nil){
+            return nil;
+        }
+        if(! [nextTextField isHidden]){
+            return nextTextField;
+        }
+    }
+    return nil;
+}
+
+- (void) updateReturnKey{
+    BOOL isLast = YES;
+    int fieldCnt = (int)[inputFields count];
+    for( int cnt = fieldCnt - 1; cnt >= 0; cnt--){
+        UITextField *inputField = inputFields[ cnt];
+        if(! [inputField isHidden]){
+            if( isLast){
+                inputField.returnKeyType = UIReturnKeyDone;
+                isLast = NO;
+            }
+            else{
+                inputField.returnKeyType = UIReturnKeyNext;
+            }
+        }
+    }
+}
+
+// キーボードを隠す処理
+- (void)closeSoftKeyboard {
+//    [self.view endEditing: YES];
+}
+
 
 #pragma mark Software Keyboard Methods
 
@@ -80,6 +144,19 @@
         center = [NSNotificationCenter defaultCenter];
         [center removeObserver:self name:UIKeyboardWillShowNotification object:nil];
         [center removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    }
+}
+
+- (void) addInputField:(UITextField *)inputField{
+    if( inputFields == nil){
+       inputFields = [[NSMutableArray alloc] init];
+    }
+    [inputFields addObject: inputField];
+}
+
+- (void) clearInputField{
+    if( inputFields != nil){
+        [inputFields removeAllObjects];
     }
 }
 

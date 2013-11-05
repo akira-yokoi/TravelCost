@@ -10,7 +10,9 @@
 #import "DataTypeDataSource.h"
 #import "ViewUtil.h"
 #import "ItemSettingDao.h"
+#import "ItemSettingManager.h"
 #import "MessageBuilder.h"
+#import "NumberUtil.h"
 
 @interface InputSettingEditViewController ()
 {
@@ -37,7 +39,8 @@
         self.dataTypeText.text = dataTypeName;
         
         [self changeDataType:dataTypeCode];
-        [self.dataTypeText resignFirstResponder];
+        
+        [super focusNextField: _dataTypeText];
     };
     dataTypeKeyborad.cancelBlock = ^{
         [self.dataTypeText resignFirstResponder];
@@ -49,6 +52,10 @@
     dataTypeKeyborad.picker.dataSource = dataTypeDataSource;
     dataTypeKeyborad.picker.delegate = dataTypeDataSource;
 
+    [self addInputField:self.nameText];
+    [self addInputField:self.dataTypeText];
+    [self addInputField:self.defaultValueText];
+    
     // モデルの値を設定
     {
         // 項目名
@@ -67,20 +74,6 @@
         [dataTypeKeyborad.picker selectRow:rowIndex inComponent:0 animated:true];
         [self changeDataType:dataTypeCode];
         
-        
-        // 桁数
-        if( self.settingModel.intLength != nil){
-            self.intLengthText.text = [StringUtil toStringInt:self.settingModel.intLength.intValue];
-        }
-        if( self.settingModel.decimalLength != nil){
-            self.decimalLengthText.text = [StringUtil toStringInt:self.settingModel.decimalLength.intValue];
-        }
-        
-        // 単位
-        if(! [StringUtil isEmpty:self.settingModel.unit]){
-            self.unitText.text = self.settingModel.unit;
-        }
-        
         // デフォルト値
         if(! [StringUtil isEmpty:self.settingModel.defaultValue]){
             self.defaultValueText.text = self.settingModel.defaultValue;
@@ -89,25 +82,11 @@
 }
 
 - (void) changeDataType: (NSString *) dataTypeCode{
-    
-    // ラベルの切替
-    if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_SELECT]){
-        self.unitLabel.text = @"選択肢(カンマ区切り)";
-    }
-    else{
-        self.unitLabel.text = @"単位";
-    }
-    
     // 数値
     if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_Num]){
-        // 単位
-        [self.unitLabel setHidden:NO];
-        [self.unitText setHidden:NO];
-        // 桁数
-        [self.lengthLabel setHidden:NO];
-        [self.pointLabel setHidden:NO];
-        [self.intLengthText setHidden:NO];
-        [self.decimalLengthText setHidden:NO];
+        // 選択肢
+        [self.itemLabel setHidden:YES];
+        [self.itemText setHidden:YES];
         // デフォルト値
         [self.defaultValueLabel setHidden:NO];
         [self.defaultValueText setHidden:NO];
@@ -115,13 +94,8 @@
     // 日付
     else if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_DATE]){
         // 単位
-        [self.unitLabel setHidden:YES];
-        [self.unitText setHidden:YES];
-        // 桁数
-        [self.lengthLabel setHidden:YES];
-        [self.pointLabel setHidden:YES];
-        [self.intLengthText setHidden:YES];
-        [self.decimalLengthText setHidden:YES];
+        [self.itemLabel setHidden:YES];
+        [self.itemText setHidden:YES];
         // デフォルト値
         [self.defaultValueLabel setHidden:YES];
         [self.defaultValueText setHidden:YES];
@@ -129,13 +103,8 @@
     // 選択肢
     else if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_SELECT]){
         // 単位
-        [self.unitLabel setHidden:NO];
-        [self.unitText setHidden:NO];
-        // 桁数
-        [self.lengthLabel setHidden:YES];
-        [self.pointLabel setHidden:YES];
-        [self.intLengthText setHidden:YES];
-        [self.decimalLengthText setHidden:YES];
+        [self.itemLabel setHidden:NO];
+        [self.itemText setHidden:NO];
         // デフォルト値
         [self.defaultValueLabel setHidden:NO];
         [self.defaultValueText setHidden:NO];
@@ -143,18 +112,14 @@
     // デフォルト値のみ表示
     else{
         // 単位
-        [self.unitLabel setHidden:YES];
-        [self.unitText setHidden:YES];
-        // 桁数
-        [self.lengthLabel setHidden:YES];
-        [self.pointLabel setHidden:YES];
-        [self.intLengthText setHidden:YES];
-        [self.decimalLengthText setHidden:YES];
+        [self.itemLabel setHidden:YES];
+        [self.itemText setHidden:YES];
         // デフォルト値
         [self.defaultValueLabel setHidden:NO];
         [self.defaultValueText setHidden:NO];
     }
 
+    [super updateReturnKey];
 }
 
 #pragma mark Menu Action
@@ -179,6 +144,10 @@
     if( self.settingModel != nil){
         ItemSettingDao *dao = [[ItemSettingDao alloc] init];
         [dao deleteModel: self.settingModel];
+        
+        // 更新時間を設定
+        [[ItemSettingManager instance] setUpdate:[ NSDate date]];
+        
         [ViewUtil showToast:@"削除しました"];
         [ViewUtil closeView:self];
     }
@@ -207,14 +176,8 @@
     self.settingModel.defaultValue = self.defaultValueText.text;
     // 選択肢 or 単位
     if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_SELECT]){
-        self.settingModel.selectItems = self.unitText.text;
+        self.settingModel.selectItems = self.itemText.text;
     }
-    else{
-        self.settingModel.unit = self.unitText.text;
-    }
-    // 桁数
-    self.settingModel.intLength = [StringUtil toInteger:self.intLengthText.text];
-    self.settingModel.decimalLength = [StringUtil toInteger:self.decimalLengthText.text];
     
     // 必須チェック
     {
@@ -223,18 +186,11 @@
             [builder addMessage: @"項目名を入力してください"];
         }
         
-        // 数値の場合
-        if( [StringUtil equals:dataTypeCode str2:ISM_DATA_TYPE_Num]){
-            if( self.settingModel.intLength == nil){
-                [builder addMessage: @"整数の桁数を入力してください"];
-            }
-            if( self.settingModel.decimalLength == nil){
-                [builder addMessage: @"小数の桁数を入力してください"];
-            }
-        }
-        
         // 項目名重複チェック
-        NSString *where = [NSString stringWithFormat:@" %@='%@' ", ISM_COLUMN_NAME, self.settingModel.name];
+        NSMutableString *where = [NSMutableString stringWithFormat:@" %@='%@' ", ISM_COLUMN_NAME, self.settingModel.name];
+        if( self.settingModel.rowId != nil){
+            [where appendFormat: @"and %@ != %@ ", ISM_COLUMN_ROW_ID, self.settingModel.rowId];
+        }
         NSArray *list = [dao list:where order:nil];
         if( [list count] != 0){
             [builder addMessage: @"項目名が重複しています"];
@@ -248,6 +204,10 @@
     }
 
     [dao saveModel:self.settingModel];
+    
+    // 更新時間を設定
+    [[ItemSettingManager instance] setUpdate:[ NSDate date]];
+    
     [ViewUtil showToast:@"保存しました"];
     [ViewUtil closeView:self];
 }

@@ -36,6 +36,16 @@
 
 + (NSString *) addComma: (int) value;
 
++ (NSString *) addComma: (double) value decimalLength:(int)decimalLength;
+
++ (NSString *) addCommaToString:(NSString *) str;
+
++ (NSString *) addCommaToString:(NSString *) value decimalLength:(int)decimalLength;
+
++ (NSString *) removeComma: (NSString *) str;
+
++ (NSString *) replaceAll: (NSString *) target oldStr:(NSString *)oldStr newStr:(NSString *)newStr;
+
 + (BOOL) contains: (NSString *)value keyword:(NSString *)keyword;
 
 + (NSString *) killNull: (NSString *) value;

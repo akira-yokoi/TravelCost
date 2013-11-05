@@ -7,7 +7,9 @@
 //
 
 #import "InputSettingListViewController.h"
+
 #import "DataTypeDataSource.h"
+#import "ItemSettingManager.h"
 
 @interface InputSettingListViewController ()
 
@@ -34,6 +36,9 @@
     // 並び順を保存
     ItemSettingDao *dao = [[ItemSettingDao alloc] init];
     [dao saveModels:values];
+    
+    // 更新時間を設定
+    [[ItemSettingManager instance] setUpdate:[ NSDate date]];
 }
 
 -(void)setCellData:(UITableViewCell *)cell value:(id)value{

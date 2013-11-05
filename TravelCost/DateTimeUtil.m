@@ -15,6 +15,10 @@
     return date;
 }
 
++ (NSDate *) getDateFromYYYYMMDD: (NSString *) yyyymmdd{
+    NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"yyyy/M/d"];
+    return [formatter dateFromString:yyyymmdd];
+}
 
 + (NSString *) getYYYYMD:(NSDate *) date{
     NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"yyyy/M/d"];
@@ -46,6 +50,42 @@
         adjusDate = [adjusDate initWithTimeInterval:(interval) sinceDate:adjusDate];
     }
     return adjusDate;
+}
+
++ (BOOL) d1_gt_d2:(NSDate *) date1 date2:(NSDate *)date2{
+    NSComparisonResult result = [date1 compare:date2];
+    
+    if( result == NSOrderedDescending){
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL) d1_ge_d2:(NSDate *) date1 date2:(NSDate *)date2{
+    NSComparisonResult result = [date1 compare:date2];
+    
+    if( result == NSOrderedDescending || result == NSOrderedSame){
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL) d1_lt_d2:(NSDate *) date1 date2:(NSDate *)date2{
+    NSComparisonResult result = [date1 compare:date2];
+    
+    if( result == NSOrderedAscending){
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL) d1_le_d2:(NSDate *) date1 date2:(NSDate *)date2{
+    NSComparisonResult result = [date1 compare:date2];
+    
+    if( result == NSOrderedAscending || result == NSOrderedSame){
+        return YES;
+    }
+    return NO;
 }
 
 + (NSDateFormatter *) createFormatter:(NSString *) format{

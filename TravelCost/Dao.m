@@ -8,6 +8,11 @@
 
 #import "Dao.h"
 
+#import "DatabaseManager.h"
+#import "ModelManager.h"
+#import "StringUtil.h"
+#import "ModelManager.h"
+#import "ReflectionUtil.h"
 
 @implementation Dao
 {
@@ -264,7 +269,15 @@
         NSString *fieldName = [StringUtil toFieldName:columnName];
         id value = [model valueForKey:fieldName];
         if( value != nil){
-            [values addObject:value];
+            if( [ReflectionUtil instanceof:value class:[NSDate class]]){
+                NSDate *date = (NSDate *)value;
+                NSTimeInterval interval = [date timeIntervalSince1970];
+                NSNumber *dateNumber = [NSNumber numberWithDouble:(double)interval];
+                [values addObject: dateNumber];
+            }
+            else{
+                [values addObject:value];
+            }
         }
         else{
             [values addObject:[NSNull null]];

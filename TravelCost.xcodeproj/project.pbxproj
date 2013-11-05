@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93A3EDC1827BE1E00FBFABF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */; };
 		E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E689181018FC0050FAD9 /* BaseViewController.m */; };
 		E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */; };
 		E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */; };
@@ -29,6 +30,10 @@
 		E9578F2817FDB2F60035B289 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9578F2617FDB2F60035B289 /* InfoPlist.strings */; };
 		E9578F2A17FDB2F60035B289 /* TravelCostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F2917FDB2F60035B289 /* TravelCostTests.m */; };
 		E95ADF9B182341F400A6B11D /* MessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADF9A182341F400A6B11D /* MessageBuilder.m */; };
+		E95ADF9F1823ADFB00A6B11D /* ItemSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADF9E1823ADFB00A6B11D /* ItemSettingManager.m */; };
+		E95ADFA21823E80300A6B11D /* NumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFA11823E80300A6B11D /* NumberUtil.m */; };
+		E95ADFA518253A9600A6B11D /* CsvPickerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */; };
+		E95ADFAB18253E0A00A6B11D /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFAA18253E0A00A6B11D /* CSVParser.m */; };
 		E986B7461802F3C300C1E5C1 /* PickerKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */; };
 		E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */; };
 		E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */; };
@@ -99,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E93A3EDA1827BE1E00FBFABF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		E949E688181018FC0050FAD9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		E949E689181018FC0050FAD9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E949E68F18101A4F0050FAD9 /* InputSettingEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSettingEditViewController.h; sourceTree = "<group>"; };
@@ -132,6 +139,14 @@
 		E9578F2917FDB2F60035B289 /* TravelCostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelCostTests.m; sourceTree = "<group>"; };
 		E95ADF99182341F400A6B11D /* MessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBuilder.h; sourceTree = "<group>"; };
 		E95ADF9A182341F400A6B11D /* MessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBuilder.m; sourceTree = "<group>"; };
+		E95ADF9D1823ADFB00A6B11D /* ItemSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSettingManager.h; sourceTree = "<group>"; };
+		E95ADF9E1823ADFB00A6B11D /* ItemSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSettingManager.m; sourceTree = "<group>"; };
+		E95ADFA01823E80300A6B11D /* NumberUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberUtil.h; sourceTree = "<group>"; };
+		E95ADFA11823E80300A6B11D /* NumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberUtil.m; sourceTree = "<group>"; };
+		E95ADFA318253A9600A6B11D /* CsvPickerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvPickerDataSource.h; sourceTree = "<group>"; };
+		E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CsvPickerDataSource.m; sourceTree = "<group>"; };
+		E95ADFA918253E0A00A6B11D /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
+		E95ADFAA18253E0A00A6B11D /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
 		E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerKeyboardView.xib; sourceTree = "<group>"; };
 		E986B7471802F41A00C1E5C1 /* PickerKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerKeyboardViewController.h; sourceTree = "<group>"; };
 		E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerKeyboardViewController.m; sourceTree = "<group>"; };
@@ -253,6 +268,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93A3ED91827BE0500FBFABF /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				E93A3EDA1827BE1E00FBFABF /* SettingViewController.h */,
+				E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
 		E949E68B181019020050FAD9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +331,7 @@
 				E9578F0E17FDB2F60035B289 /* AppDelegate.m */,
 				E9578F1017FDB2F60035B289 /* Main.storyboard */,
 				E9D54F68180C262600167C19 /* cell */,
+				E95ADF9C1823ADDE00A6B11D /* common */,
 				E989480817FDC82100E07F9E /* controller */,
 				E9B13E1117FE6C430089B860 /* model */,
 				E9B13E3B17FEADEB0089B860 /* dao */,
@@ -348,6 +373,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E95ADF9C1823ADDE00A6B11D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E95ADF9D1823ADFB00A6B11D /* ItemSettingManager.h */,
+				E95ADF9E1823ADFB00A6B11D /* ItemSettingManager.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
 		E989480817FDC82100E07F9E /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +391,7 @@
 				E9BF9CFB180543520055FBA3 /* CostListViewController.m */,
 				E9FEC020181E61AF00534406 /* input */,
 				E996624E181BFBCA008727D8 /* output */,
+				E93A3ED91827BE0500FBFABF /* setting */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -378,6 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				E98D7C4118152F6300BB301C /* ModalViewDelegate.h */,
+				E95ADFA318253A9600A6B11D /* CsvPickerDataSource.h */,
+				E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */,
 			);
 			name = delegate;
 			sourceTree = "<group>";
@@ -557,6 +594,8 @@
 		E9EEA6261800F93600FFAF63 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				E95ADFA918253E0A00A6B11D /* CSVParser.h */,
+				E95ADFAA18253E0A00A6B11D /* CSVParser.m */,
 				E9B13E5918004CC00089B860 /* DateTimeUtil.h */,
 				E9B13E5A18004CC00089B860 /* DateTimeUtil.m */,
 				E9EEA6271800F95700FFAF63 /* StringUtil.h */,
@@ -569,6 +608,8 @@
 				E9966250181CBAB2008727D8 /* ReflectionUtil.m */,
 				E95ADF99182341F400A6B11D /* MessageBuilder.h */,
 				E95ADF9A182341F400A6B11D /* MessageBuilder.m */,
+				E95ADFA01823E80300A6B11D /* NumberUtil.h */,
+				E95ADFA11823E80300A6B11D /* NumberUtil.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -708,7 +749,9 @@
 			files = (
 				E9FEC02C18223B9B00534406 /* DataTypeDataSource.m in Sources */,
 				E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */,
+				E95ADFA21823E80300A6B11D /* NumberUtil.m in Sources */,
 				E9D54F66180BED4300167C19 /* InputViewSwitchCell.m in Sources */,
+				E95ADF9F1823ADFB00A6B11D /* ItemSettingManager.m in Sources */,
 				E9B13E1717FE77CA0089B860 /* ItemValueModel.m in Sources */,
 				E9966249181A6781008727D8 /* FMDatabase.m in Sources */,
 				E9578F1517FDB2F60035B289 /* CostInputViewController.m in Sources */,
@@ -723,6 +766,7 @@
 				E95ADF9B182341F400A6B11D /* MessageBuilder.m in Sources */,
 				E98D7C401814CDC600BB301C /* OutputSettingItemViewController.m in Sources */,
 				E9B13E1D17FE77CA0089B860 /* ItemSettingModel.m in Sources */,
+				E95ADFA518253A9600A6B11D /* CsvPickerDataSource.m in Sources */,
 				E9B13E3E17FEAE050089B860 /* TravelCostDao.m in Sources */,
 				E9B13E6118005BD60089B860 /* ItemValueDao.m in Sources */,
 				E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */,
@@ -739,6 +783,7 @@
 				E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */,
 				E992E69A18029C1E00ED032A /* InputViewCell.m in Sources */,
 				E9BF9CFF1805475F0055FBA3 /* ListViewCell.m in Sources */,
+				E95ADFAB18253E0A00A6B11D /* CSVParser.m in Sources */,
 				E9B13E4117FEB8C80089B860 /* Dao.m in Sources */,
 				E9B13E5E18005B780089B860 /* ItemSettingDao.m in Sources */,
 				E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */,
@@ -749,6 +794,7 @@
 				E949E6A1181132C80050FAD9 /* OutputSettingEditViewController.m in Sources */,
 				E9B13E1017FE6AF40089B860 /* UIViewController+MJPopupViewController.m in Sources */,
 				E996624B181A6781008727D8 /* FMDatabasePool.m in Sources */,
+				E93A3EDC1827BE1E00FBFABF /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

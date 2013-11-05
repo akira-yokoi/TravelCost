@@ -9,17 +9,26 @@
 #import "OutputSettingListViewController.h"
 
 @interface OutputSettingListViewController ()
-
+{
+    NSMutableDictionary *idSettingMap;
+}
 @end
 
 @implementation OutputSettingListViewController
 
 static NSString * const EMPTY_STR  = @"";
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    idSettingMap = [[NSMutableDictionary alloc] init];
+}
+
+
 - (NSArray *) getValues{
     ItemSettingDao *dao = [[ItemSettingDao alloc]init];
-    NSString *where = [NSString stringWithFormat:@"%@ != 0", ISM_COLUMN_OUTPUT_FLAG];
-    return [dao list:where order:ISM_COLUMN_OUTPUT_ORDER_NUM];
+    return [dao list:nil order:ISM_COLUMN_OUTPUT_ORDER_NUM];
 }
 
 - (UITableView *) getTableView{
@@ -59,8 +68,18 @@ static NSString * const EMPTY_STR  = @"";
     
     // セルにテキストを設定
     ItemSettingModel *settingModel = values[ indexPath.row];
+
+    NSNumber *rowId = settingModel.rowId;
     cell.nameLabel.text = settingModel.name;
     cell.onOffSwitch.on = settingModel.outputFlag;
+    cell.onOffSwitch.tag = [settingModel.rowId intValue];
+
+    // マップに値をつめる
+    NSString *key = [StringUtil toStringNumber:rowId];
+    [idSettingMap setValue:settingModel forKey:key];
+    
+    // ON/OFF切り替え時に呼びされる関数を指定する
+	[ cell.onOffSwitch addTarget:self action:@selector( onChangeSwitch: ) forControlEvents:UIControlEventValueChanged ];
     
     // 入力項目の場合はON/OFFのみで詳細はなし
     if( settingModel.inputFlag){
@@ -73,5 +92,15 @@ static NSString * const EMPTY_STR  = @"";
         cell.detailLabel.text = EMPTY_STR;
     }
     return cell;
+}
+
+- ( void )onChangeSwitch:( id )sender{
+    UISwitch *onOffSwitch = (UISwitch *)sender;
+    int tag = (int)[onOffSwitch tag];
+    ItemSettingModel *settingModel = [idSettingMap valueForKey: [StringUtil toStringInt: tag]];
+    settingModel.outputFlag = onOffSwitch.on;
+    
+    ItemSettingDao *dao = [[ItemSettingDao alloc] init];
+    [dao saveModel:settingModel];
 }
 @end

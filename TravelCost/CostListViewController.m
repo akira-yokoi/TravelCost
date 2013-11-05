@@ -20,14 +20,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self reload];
+}
+
+
+- (void) reload{
     // 一覧の取得
     TravelCostDao *dao = [[TravelCostDao alloc] init];
-    NSMutableArray *costList = [dao list];
+    values = [dao list];
+    [self.tableView reloadData];
     
-    values = [[NSMutableArray alloc] init];
-    [values addObjectsFromArray:costList];
+    int total = 0;
+    for( TravelCostModel *model in values){
+        total += [model.amount intValue];
+    }
+    self.totalLabel.text = [StringUtil addComma:total];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

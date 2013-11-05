@@ -28,15 +28,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *defaultValueLabel;
 @property (weak, nonatomic) IBOutlet UITextField *defaultValueText;
 
-// 単位,選択肢
-@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
-@property (weak, nonatomic) IBOutlet UITextField *unitText;
-
-// 桁数
-@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pointLabel;
-@property (weak, nonatomic) IBOutlet UITextField *intLengthText;
-@property (weak, nonatomic) IBOutlet UITextField *decimalLengthText;
+// 選択肢
+@property (weak, nonatomic) IBOutlet UILabel *itemLabel;
+@property (weak, nonatomic) IBOutlet UITextField *itemText;
 
 // アクション
 - (IBAction)helpSelected:(id)sender;
