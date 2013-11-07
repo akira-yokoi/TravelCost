@@ -32,18 +32,22 @@
     // キーボードを生成してインスタンス変数に設定
     dataTypeKeyborad = [[PickerKeyboardViewController alloc] init];
     self.dataTypeText.inputView = [dataTypeKeyborad view];
+    
+    __block PickerKeyboardViewController *blockViewController = dataTypeKeyborad;
+    __block InputSettingEditViewController *blockSelf = self;
+    
     dataTypeKeyborad.okBlock = ^{
-        int selectedRow = (int)[dataTypeKeyborad.picker selectedRowInComponent:0];
+        int selectedRow = (int)[blockViewController.picker selectedRowInComponent:0];
         NSString *dataTypeCode = [DataTypeDataSource getDataTypeCodeFromIndex:selectedRow];
         NSString *dataTypeName = [DataTypeDataSource getDataTypeNameFromIndex:selectedRow];
-        self.dataTypeText.text = dataTypeName;
+        blockSelf.dataTypeText.text = dataTypeName;
         
-        [self changeDataType:dataTypeCode];
+        [blockSelf changeDataType:dataTypeCode];
         
-        [super focusNextField: _dataTypeText];
+        [super focusNextField: blockSelf.dataTypeText];
     };
     dataTypeKeyborad.cancelBlock = ^{
-        [self.dataTypeText resignFirstResponder];
+        [blockSelf.dataTypeText resignFirstResponder];
     };
     
     

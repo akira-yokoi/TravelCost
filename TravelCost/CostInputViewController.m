@@ -27,6 +27,7 @@
 #import "InputSettingListViewController.h"
 #import "OutputSettingListViewController.h"
 #import "SettingViewController.h"
+#import "OkCancelAccessoryViewController.h"
 
 #import "FMDatabase.h"
 
@@ -41,10 +42,14 @@
     NSMutableArray *values;
     NSIndexPath *focusIndexPath;
     
+    OkCancelAccessoryViewController *accessoryViewController;
     KeyboardViewController *keyboardViewController;
+    CsvPickerDataSource *pickerDataSource;
     NSMutableDictionary *rowItemSettingMap;
     
     NSDate *settingLoadTime;
+    
+    UIView *keyboard;
 }
 @property (strong, nonatomic) FMDatabase *db;
 
@@ -199,8 +204,10 @@
     // データ型が日付の場合
     if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
         keyboardViewController = [[DateKeyboardViewController alloc] init];
+        
+        __block KeyboardViewController *blockViewController = keyboardViewController;
         keyboardViewController.okBlock = ^{
-            DateKeyboardViewController *dateKeyboard = ((DateKeyboardViewController *) keyboardViewController);
+            DateKeyboardViewController *dateKeyboard = ((DateKeyboardViewController *) blockViewController);
             textField.text = [DateTimeUtil getYYYYMD: dateKeyboard.datePicker.date];
             [super focusNextField: textField];
         };
@@ -208,9 +215,6 @@
     // データ型が選択方式の場合
     else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
         PickerKeyboardViewController *pickerKeyboard = [[PickerKeyboardViewController alloc] init];
-        CsvPickerDataSource *pickerDataSource = [[CsvPickerDataSource alloc] initWithString:setting.selectItems];
-        pickerKeyboard.picker.delegate = pickerDataSource;
-        pickerKeyboard.picker.dataSource = pickerDataSource;
         keyboardViewController = pickerKeyboard;
         keyboardViewController.okBlock = ^{
             [super focusNextField: textField];
@@ -218,14 +222,42 @@
     }
     
     // キャンセル時の処理
-    keyboardViewController.cancelBlock = ^{
+    accessoryViewController = [[OkCancelAccessoryViewController alloc] init];
+    UIView *accessory = [accessoryViewController view];
+    // サイズを指定しないと駄目？
+    accessory.frame = CGRectMake(0.0f, 0.0f, 280.0f, 40.0f);
+    accessoryViewController.cancelBlock = ^{
         [textField resignFirstResponder];
     };
-
     
+
+    textField.inputAccessoryView = accessory;
     textField.inputView = [keyboardViewController view];
     
+    // データ型が選択方式の場合にPickerの中身を設定
+    if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
+        PickerKeyboardViewController *pickerKeyboard = (PickerKeyboardViewController *)keyboardViewController;
+        pickerDataSource = [[CsvPickerDataSource alloc] initWithString:setting.selectItems];
+        pickerKeyboard.picker.delegate = pickerDataSource;
+        pickerKeyboard.picker.dataSource = pickerDataSource;
+    }
+    
     return YES;
+}
+
+- (UIView *)getAccessoryView
+{
+    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 40.0f)];
+    accessoryView.backgroundColor = [UIColor blueColor];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(250.0f, 5.0f, 65.0f, 34.0f);
+    [button setTitle:@"とじる" forState:UIControlStateNormal];
+    
+    // View にボタン追加
+    [accessoryView addSubview:button];
+    
+    return accessoryView;
 }
 
 #pragma mark Logic
@@ -499,6 +531,7 @@
     [UIView animateWithDuration:duration delay:0.0 options:(animationCurve << 16) animations:animations completion:nil];
     
     keyboardViewController = nil;
+    pickerDataSource = nil;
 }
 
 @end

@@ -639,7 +639,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="一覧" id="5R1-YB-6AE">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="EpC-W2-dZ6"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1cH-n1-tVg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="ZAC-hV-ZSM"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="KyR-a4-9B1" id="TTx-kO-sli"/>

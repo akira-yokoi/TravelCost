@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E93A3EDC1827BE1E00FBFABF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */; };
+		E93A3EE3182A34DD00FBFABF /* OkCancelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */; };
+		E93A3EE5182B23E700FBFABF /* OkCancelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */; };
 		E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E689181018FC0050FAD9 /* BaseViewController.m */; };
 		E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */; };
 		E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */; };
@@ -106,6 +108,9 @@
 /* Begin PBXFileReference section */
 		E93A3EDA1827BE1E00FBFABF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		E93A3EE1182A34DD00FBFABF /* OkCancelAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OkCancelAccessoryViewController.h; sourceTree = "<group>"; };
+		E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OkCancelAccessoryViewController.m; sourceTree = "<group>"; };
+		E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OkCancelAccessoryView.xib; sourceTree = "<group>"; };
 		E949E688181018FC0050FAD9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		E949E689181018FC0050FAD9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E949E68F18101A4F0050FAD9 /* InputSettingEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSettingEditViewController.h; sourceTree = "<group>"; };
@@ -405,6 +410,9 @@
 				E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */,
 				E986B7471802F41A00C1E5C1 /* PickerKeyboardViewController.h */,
 				E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */,
+				E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */,
+				E93A3EE1182A34DD00FBFABF /* OkCancelAccessoryViewController.h */,
+				E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -723,6 +731,7 @@
 				E99101E818046E2D00F3B048 /* 729-top-list@2x.png in Resources */,
 				E9BF9CF818053E6F0055FBA3 /* 709-plus.png in Resources */,
 				E949E6A5181133E90050FAD9 /* 739-question@2x.png in Resources */,
+				E93A3EE5182B23E700FBFABF /* OkCancelAccessoryView.xib in Resources */,
 				E9578F0917FDB2F60035B289 /* InfoPlist.strings in Resources */,
 				E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */,
 				E9BF9CF418053E5B0055FBA3 /* 730-envelope.png in Resources */,
@@ -788,6 +797,7 @@
 				E9B13E5E18005B780089B860 /* ItemSettingDao.m in Sources */,
 				E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */,
 				E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */,
+				E93A3EE3182A34DD00FBFABF /* OkCancelAccessoryViewController.m in Sources */,
 				E99101C718044AC300F3B048 /* ViewUtil.m in Sources */,
 				E9FEC02F1822490A00534406 /* KeyboardViewController.m in Sources */,
 				E9B13E3A17FEAA170089B860 /* DatabaseManager.m in Sources */,

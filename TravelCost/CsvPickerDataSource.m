@@ -19,8 +19,7 @@
     self = [super init];
 	if (self)
 	{
-        CSVParser *csvParser = [[CSVParser alloc] initWithString:csv separator:@"," hasHeader:NO fieldNames:nil];
-        values = [csvParser arrayOfParsedRows];
+        values = [csv componentsSeparatedByString:@","];
     }
     return self;
 }
@@ -30,7 +29,7 @@
 }
 
 -(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return [values count];
+    return (int)[values count];
 }
 
 // 表示する内容を返す
