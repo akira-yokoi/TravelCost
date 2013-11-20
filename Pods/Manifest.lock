@@ -1,0 +1,33 @@
+PODS:
+  - CHCSVParser (2.0.7)
+  - CSV (0.0.2)
+  - FontAwesomeKit (2.1.0):
+    - FontAwesomeKit/Core
+    - FontAwesomeKit/FontAwesome
+    - FontAwesomeKit/FoundationIcons
+    - FontAwesomeKit/IonIcons
+    - FontAwesomeKit/Zocial
+  - FontAwesomeKit/Core (2.1.0)
+  - FontAwesomeKit/FontAwesome (2.1.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.1.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.1.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.1.0):
+    - FontAwesomeKit/Core
+  - SVProgressHUD (1.0)
+
+DEPENDENCIES:
+  - CHCSVParser
+  - CSV
+  - FontAwesomeKit
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  CHCSVParser: 30ac034cc0d37d9c783e7af96926270524836d70
+  CSV: 4f8a296423af082c17e3b987cb6a924431601874
+  FontAwesomeKit: 1f565351c11b7e6ca13486b6bd2f0f106f16e810
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
+
+COCOAPODS: 0.27.1

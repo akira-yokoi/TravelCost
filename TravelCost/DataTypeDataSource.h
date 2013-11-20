@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 akira yokoi. All rights reserved.
 //
 
-#import "PickerKeyboardViewController.h"
-
 @interface DataTypeDataSource : NSObject<UIPickerViewDataSource, UIPickerViewDelegate>
 
 + (NSString *) getDataTypeCode: (NSString *)dataTypeName;

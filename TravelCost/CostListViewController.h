@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+
+
 #import "TravelCostDao.h"
 
 #import "DateTimeUtil.h"
@@ -14,9 +18,13 @@
 
 #import "CostInputViewController.h"
 
-@interface CostListViewController : UIViewController<UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface CostListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+- (IBAction)menuSelected:(id)sender;
+- (IBAction)mailSelected:(id)sender;
 
 @end

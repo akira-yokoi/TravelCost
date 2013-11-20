@@ -8,6 +8,10 @@
 
 #import "ViewUtil.h"
 
+#import "FontAwesomeKit.h"
+#import "StringUtil.h"
+#import "SVProgressHUD.h"
+
 @implementation ViewUtil
 
 +(void) showMessage:(NSString *)title message:(NSString *)message{
@@ -16,30 +20,6 @@
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"OK", nil];
     [alert show];
-    
-    id obj = nil;
-    // タイトル文字列が存在しない場合はsubviewsの1番目の要素
-    if (!title || !([title length] > 0)) {
-        if ([[alert subviews] count] > 0) {
-            obj = [[alert subviews] objectAtIndex:0];
-        }
-    }
-    // タイトル文字列が存在する場合はsubviewsの2番目の要素
-    else if ([title length] > 0) {
-        if ([[alert subviews] count] > 1) {
-            obj = [[alert subviews] objectAtIndex:1];
-        }
-    }
-    
-    // UILabel型であればtextAlignmentを左寄せにセット
-    if (obj && [obj isKindOfClass:[UILabel class]]) {
-        ((UILabel *)obj).textAlignment = NSTextAlignmentLeft;
-    }
-
-    UILabel *label = (UILabel *)[[alert subviews] objectAtIndex:0];
-    label.text = @"SSS";
-    label.textAlignment = NSTextAlignmentLeft;
-
 }
 
 +(void) showConfirm:(NSString *)title message:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate{
@@ -49,13 +29,62 @@
 }
 
 +(void) showToast:(NSString *)message {
-    iToast *toast = [iToast makeText:message];
-    [toast setDuration:2000];
-    [toast show];
+    [SVProgressHUD showImage:nil status:message];
 }
 
 +(void) closeView:(UIViewController *)vc{
-    [vc.navigationController popViewControllerAnimated:YES];
+    [vc dismissViewControllerAnimated:YES completion:nil];
+}
+
+
++(void) setToolbarImages:(UIToolbar *) toolbar{
+    NSArray *items = [toolbar items];
+    NSMutableDictionary *titleIconMap = [[NSMutableDictionary alloc] init];
+    
+    titleIconMap[ @"save"] = @"\uf0c7";
+    titleIconMap[ @"delete"] = @"\uf014";
+    titleIconMap[ @"favorite"] = @"\uf005";
+    titleIconMap[ @"list"] = @"\uf03A";
+    titleIconMap[ @"menu"] = @"\uf085";
+    titleIconMap[ @"copy"] = @"\uf0c5";
+    titleIconMap[ @"add"] = @"\uf055";
+    titleIconMap[ @"mail"] = @"\uf0e0";
+    titleIconMap[ @"left"] = @"\uf053";
+    titleIconMap[ @"right"] = @"\uf054";
+    
+    for( UIBarButtonItem *item in items){
+        NSString *title = item.title;
+        NSString *icon = [titleIconMap valueForKey:title];
+        
+        if( icon){
+            item.image = [self createButtonImage:icon];
+        }
+    }
+    [toolbar setItems:items];
+}
+
++ (UIImage *) createButtonImage:(NSString *)unicode{
+    FAKFontAwesome *fontIcon = [FAKFontAwesome iconWithCode:unicode size:25];
+    return [fontIcon imageWithSize:CGSizeMake(44, 44)];
+}
+
++ (void)removeItem:(UIToolbar *)toolbar title:(NSString *)title{
+    NSMutableArray *items = [[NSMutableArray alloc] initWithArray:[toolbar items]];
+    int removeIndex = -1;
+    for( int cnt = 0; cnt < [items count]; cnt++){
+        UIBarButtonItem *item = (UIBarButtonItem *)items[ cnt];
+        if( [StringUtil equals:item.title str2:title]){
+            removeIndex = cnt;
+            break;
+        }
+    }
+    
+    if( removeIndex != -1){
+        [items removeObjectAtIndex:removeIndex];
+        // Flexible space bar buttonも消す
+        [items removeObjectAtIndex:removeIndex - 1];
+        [toolbar setItems:items];
+    }
 }
 
 @end

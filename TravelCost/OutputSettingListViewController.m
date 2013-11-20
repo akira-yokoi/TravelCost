@@ -23,6 +23,7 @@ static NSString * const EMPTY_STR  = @"";
     [super viewDidLoad];
 
     idSettingMap = [[NSMutableDictionary alloc] init];
+    [ViewUtil setToolbarImages:self.toolbar];
 }
 
 

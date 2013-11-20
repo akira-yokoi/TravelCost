@@ -57,8 +57,6 @@
 }
 
 - (void) focusNextField:(UITextField *)textField{
-    [textField resignFirstResponder];
-    /*
     UITextField *nextTextField = [self getNextFocusField:textField];
     
     if( nextTextField == nil){
@@ -70,7 +68,6 @@
         [textField resignFirstResponder];
         [nextTextField becomeFirstResponder];
     }
-    */
 }
 
 /**

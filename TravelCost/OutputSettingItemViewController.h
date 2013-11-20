@@ -20,6 +20,7 @@
 @property (nonatomic) id<ModalViewDelegate> delegate;
 @property (nonatomic) id defaultValue;
 
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *fixStringText;
 @property (weak, nonatomic) IBOutlet UIPickerView *inputItemPicker;

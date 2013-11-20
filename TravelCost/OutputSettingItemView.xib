@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
@@ -9,6 +10,7 @@
                 <outlet property="fixStringText" destination="RUE-ee-P5j" id="SnR-rb-owV"/>
                 <outlet property="inputItemPicker" destination="e29-Zn-iEi" id="mUC-Wa-0Es"/>
                 <outlet property="segmentedControl" destination="6R3-Pb-ITv" id="Iqv-hM-aXb"/>
+                <outlet property="toolbar" destination="dnp-An-f8w" id="JcX-EX-APg"/>
                 <outlet property="view" destination="1" id="H5g-A7-PII"/>
             </connections>
         </placeholder>
@@ -17,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6R3-Pb-ITv">
-                    <rect key="frame" x="20" y="48" width="280" height="29"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6R3-Pb-ITv">
+                    <rect key="frame" x="20" y="40" width="280" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="入力項目"/>
@@ -28,13 +30,13 @@
                         <action selector="segmentChanged:" destination="-1" eventType="valueChanged" id="xkT-vV-wMt"/>
                     </connections>
                 </segmentedControl>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="固定の文字列を入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-ee-P5j">
-                    <rect key="frame" x="20" y="99" width="280" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="固定の文字列を入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-ee-P5j">
+                    <rect key="frame" x="20" y="88" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-An-f8w">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-An-f8w">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
@@ -53,12 +55,26 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Nv6-KF-Ew6"/>
                     </items>
                 </toolbar>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e29-Zn-iEi">
-                    <rect key="frame" x="0.0" y="99" width="320" height="162"/>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e29-Zn-iEi">
+                    <rect key="frame" x="0.0" y="88" width="320" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </pickerView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="e29-Zn-iEi" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="5Az-WH-XMQ"/>
+                <constraint firstItem="dnp-An-f8w" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="6go-Gx-ORi"/>
+                <constraint firstItem="e29-Zn-iEi" firstAttribute="top" secondItem="6R3-Pb-ITv" secondAttribute="bottom" constant="20" id="D40-cq-Vqh"/>
+                <constraint firstAttribute="trailing" secondItem="6R3-Pb-ITv" secondAttribute="trailing" constant="20" id="GHe-3D-Uyy"/>
+                <constraint firstAttribute="trailing" secondItem="e29-Zn-iEi" secondAttribute="trailing" id="MYs-Mh-RJ5"/>
+                <constraint firstItem="6R3-Pb-ITv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="NQs-NA-95M"/>
+                <constraint firstAttribute="trailing" secondItem="RUE-ee-P5j" secondAttribute="trailing" constant="20" id="XCz-4c-YI0"/>
+                <constraint firstItem="6R3-Pb-ITv" firstAttribute="top" secondItem="1" secondAttribute="top" constant="40" id="ZF9-E4-svF"/>
+                <constraint firstAttribute="bottom" secondItem="dnp-An-f8w" secondAttribute="bottom" id="ddt-Si-epk"/>
+                <constraint firstAttribute="trailing" secondItem="dnp-An-f8w" secondAttribute="trailing" id="ft0-s3-3jI"/>
+                <constraint firstItem="RUE-ee-P5j" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="hUr-3y-p6A"/>
+                <constraint firstItem="RUE-ee-P5j" firstAttribute="top" secondItem="6R3-Pb-ITv" secondAttribute="bottom" constant="20" id="s1v-Mt-SUb"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

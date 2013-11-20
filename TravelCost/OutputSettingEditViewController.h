@@ -15,6 +15,7 @@
 
 @interface OutputSettingEditViewController : UIViewController<ModalViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) ItemSettingModel *settingModel;
 

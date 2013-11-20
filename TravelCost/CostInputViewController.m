@@ -22,34 +22,41 @@
 #import "InputViewCell.h"
 #import "InputViewSwitchCell.h"
 
-#import "DateKeyboardViewController.h"
-#import "PickerKeyboardViewController.h"
 #import "InputSettingListViewController.h"
 #import "OutputSettingListViewController.h"
 #import "SettingViewController.h"
 #import "OkCancelAccessoryViewController.h"
 
 #import "FMDatabase.h"
+#import "MenuManager.h"
 
 #import "ViewUtil.h"
 #import "DateTimeUtil.h"
+#import "NumberUtil.h"
 #import "TableUtil.h"
-#import "iToast.h"
 #import "StringUtil.h"
 
 @interface CostInputViewController ()
 {
-    NSMutableArray *values;
-    NSIndexPath *focusIndexPath;
+    NSMutableArray *mValues;
+    NSIndexPath *mFocusIndexPath;
     
-    OkCancelAccessoryViewController *accessoryViewController;
-    KeyboardViewController *keyboardViewController;
-    CsvPickerDataSource *pickerDataSource;
-    NSMutableDictionary *rowItemSettingMap;
+    OkCancelAccessoryViewController *mAccessoryViewController;
+
+    CsvPickerDataSource *mPickerDataSource;
+    NSMutableDictionary *mRowItemSettingMap;
     
-    NSDate *settingLoadTime;
+    NSDate *mSettingLoadTime;
     
-    UIView *keyboard;
+    UIView *mInputView;
+    
+    MenuManager *menuManager;
+    
+    UITextField *mRideOnLocation;
+    UITextField *mDropOffLocation;
+    
+    NSMutableDictionary *mSettingIdIndexMap;
+    BOOL historyMode;
 }
 @property (strong, nonatomic) FMDatabase *db;
 
@@ -61,8 +68,9 @@
 {
     [super viewDidLoad];
     
-    values = [[NSMutableArray alloc] init];
-    rowItemSettingMap = [[NSMutableDictionary alloc] init];
+    mValues = [[NSMutableArray alloc] init];
+    mRowItemSettingMap = [[NSMutableDictionary alloc] init];
+    mSettingIdIndexMap = [[NSMutableDictionary alloc] init];
     
     [self reload];
 }
@@ -75,7 +83,7 @@
         ItemSettingManager *settingManager = [ItemSettingManager instance];
         NSDate *updateDate = [settingManager getUpdateTime];
         if( updateDate != nil){
-            if( [DateTimeUtil d1_gt_d2:updateDate date2:settingLoadTime]){
+            if( [DateTimeUtil d1_gt_d2:updateDate date2:mSettingLoadTime]){
                 // 設定が変わっているので再読み込み
                 [self reload];
             }
@@ -113,27 +121,27 @@
 
 /** データの数 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger count = [values count];
+    NSInteger count = [mValues count];
     return count;
 }
 
 /** セルの作成 */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ItemValueModel *value = values[ indexPath.row];
+    ItemValueModel *value = mValues[ indexPath.row];
     ItemSettingModel *setting = [value _itemSettingModel];
 
     NSString *strValue = [StringUtil killNull:[value value]];
     NSString *dataType = [setting dataType];
     
-    [rowItemSettingMap setObject:setting forKey: [StringUtil toStringLong:indexPath.row]];
-    
+    [mRowItemSettingMap setObject:setting forKey: [StringUtil toStringLong:indexPath.row]];
+    [mSettingIdIndexMap setObject:indexPath forKey:[ StringUtil toStringNumber:setting.rowId]];
 
     if ( [dataType isEqualToString: ISM_DATA_TYPE_CHECK]){
         InputViewSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"switchCell" forIndexPath:indexPath];
-        
         cell.titleLabel.text = [setting name];
+        
         BOOL boolValue = [ strValue boolValue];
-        cell.swith.on = boolValue;
+        cell.swith.on = boolValue; 
         return cell;
     }
     else{
@@ -158,6 +166,15 @@
         valueText.delegate = self;
         valueText.tag = indexPath.row;
         
+        // 乗車駅
+        if( [setting.rowId integerValue] == 3){
+            mRideOnLocation = valueText;
+        }
+        // 降車駅
+        else if( [setting.rowId integerValue] == 4){
+            mDropOffLocation = valueText;
+        }
+        
         
         // データ型が日付の場合
         if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
@@ -171,9 +188,15 @@
         else if( [dataType isEqualToString: ISM_DATA_TYPE_Num]){
             valueText.keyboardType = UIKeyboardTypeDecimalPad;
         }
-        
+
+        // セルのアクセサリの設定
+        UIImageView *cellAccessory = [self createCellAccessory: setting];
+        if( cellAccessory){
+            cell.accessoryView = cellAccessory;
+        }
+ 
         // 最終行以外はリターンキーの文字を次へにする
-        if( indexPath.row != values.count - 1){
+        if( indexPath.row != mValues.count - 1){
             valueText.returnKeyType = UIReturnKeyNext;
         }
         else{
@@ -183,6 +206,87 @@
     }
 }
 
+- (UIImageView *)createCellAccessory: (ItemSettingModel *)setting{
+    NSString *dataType = [setting dataType];
+    // 文字列
+    if( [setting.rowId intValue] == 7 || [dataType isEqualToString: ISM_DATA_TYPE_STRING]){
+        // 文字列の場合は履歴ボタンを表示
+        UIImage *image = nil;
+        if( [setting.rowId intValue] == 7){
+            image = [ViewUtil createButtonImage:@"\uf0ac"];
+        }
+        else{
+            image = [ViewUtil createButtonImage:@"\uf017"];
+        }
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        //画像が大きい場合にはみ出さないようにViewの大きさを固定化
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = [setting.rowId integerValue];
+        [imageView addGestureRecognizer: [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCellImage:)]];
+        return imageView;
+    }
+    return nil;
+}
+
+- (void)clickCellImage: (UITapGestureRecognizer *)sender{
+    UIView *view = sender.view;
+    if( view.tag == 7){
+        NSString *from = mRideOnLocation.text;
+        NSString *to = mDropOffLocation.text;
+        
+        if( [StringUtil isEmpty:from]){
+            [ViewUtil showToast:@"乗車を設定してください"];
+            return;
+        }
+        if( [StringUtil isEmpty:to]){
+            [ViewUtil showToast:@"降車を設定してください"];
+            return;
+        }
+        
+        NSString *urlString = [self getTransitURL:from to:to type:@"dep" express:false];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        // ブラウザを起動する
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    else{
+        historyMode = YES;
+
+        NSIndexPath *indexPath = [mSettingIdIndexMap valueForKey:[StringUtil toStringInt:view.tag]];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if( [ReflectionUtil instanceof:cell class:[InputViewCell class]]){
+            InputViewCell *inputCell = (InputViewCell *)cell;
+            UITextField *valueText = [inputCell valueText];
+            // 既に編集中の場合もキーボードを開き直すためにいったんクローズ
+            [valueText resignFirstResponder];
+            // 再度編集モードにする
+            [valueText becomeFirstResponder];
+        }
+    }
+}
+
+- (NSString *)getTransitURL:(NSString *)from to:(NSString *)to type:(NSString *)type express:(BOOL) express{
+    
+    NSMutableString *url = [[NSMutableString alloc] init];
+    [url appendString: @"http://www.google.co.jp/maps?ie=UTF8&f=d&dirflg=r"];
+    if(! [StringUtil isEmpty:from]){
+        NSString *encFrom = [from stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [url appendFormat: @"&saddr=%@", encFrom];
+    }
+    if(! [StringUtil isEmpty:to]){
+        NSString *encTo = [to stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [url appendFormat: @"&daddr=%@", encTo];
+    }
+    [ url appendFormat: @"&ttype=%@", type];
+    [ url appendString: @"&sort=time"];
+    
+    if( !express){
+        [ url appendString: @"&noexp=1"];
+    }
+    
+    return url;
+}
+
 -(void) addComma:(UITextField*)textField{
     NSString *text = [StringUtil removeComma:textField.text];
     textField.text = [StringUtil addCommaToString:text];
@@ -190,74 +294,129 @@
 
 /** セルの選択 */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if( [ReflectionUtil instanceof:cell class:[InputViewCell class]]){
+        InputViewCell *inputCell = (InputViewCell *)cell;
+        UITextField *valueText = [inputCell valueText];
+        [valueText resignFirstResponder];
+        [valueText becomeFirstResponder];
+    }
 }
 
 /** セルの編集開始 */
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSInteger rowNum = [textField tag];
     // 編集中の行を保持しておく
-    focusIndexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
+    mFocusIndexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
     
-    ItemSettingModel *setting = [rowItemSettingMap valueForKey: [StringUtil toStringLong:rowNum]];
+    ItemSettingModel *setting = [mRowItemSettingMap valueForKey: [StringUtil toStringLong:rowNum]];
 
     NSString *dataType = [setting dataType];
-    // データ型が日付の場合
-    if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
-        keyboardViewController = [[DateKeyboardViewController alloc] init];
-        
-        __block KeyboardViewController *blockViewController = keyboardViewController;
-        keyboardViewController.okBlock = ^{
-            DateKeyboardViewController *dateKeyboard = ((DateKeyboardViewController *) blockViewController);
-            textField.text = [DateTimeUtil getYYYYMD: dateKeyboard.datePicker.date];
-            [super focusNextField: textField];
-        };
-    }
-    // データ型が選択方式の場合
-    else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
-        PickerKeyboardViewController *pickerKeyboard = [[PickerKeyboardViewController alloc] init];
-        keyboardViewController = pickerKeyboard;
-        keyboardViewController.okBlock = ^{
-            [super focusNextField: textField];
-        };
+    
+    // 入力部品の作成
+    mInputView = nil;
+    
+    if( historyMode){
+        mInputView = [self createHistoryView:setting];
     }
     
-    // キャンセル時の処理
-    accessoryViewController = [[OkCancelAccessoryViewController alloc] init];
-    UIView *accessory = [accessoryViewController view];
-    // サイズを指定しないと駄目？
-    accessory.frame = CGRectMake(0.0f, 0.0f, 280.0f, 40.0f);
-    accessoryViewController.cancelBlock = ^{
-        [textField resignFirstResponder];
-    };
+    if( mInputView == nil){
+        mInputView = [self createInputView:dataType];
+    }
     
+    textField.inputView = mInputView;
 
-    textField.inputAccessoryView = accessory;
-    textField.inputView = [keyboardViewController view];
+    mAccessoryViewController = [self createAccessoryViewController];
+    textField.inputAccessoryView = [mAccessoryViewController view];
     
     // データ型が選択方式の場合にPickerの中身を設定
     if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
-        PickerKeyboardViewController *pickerKeyboard = (PickerKeyboardViewController *)keyboardViewController;
-        pickerDataSource = [[CsvPickerDataSource alloc] initWithString:setting.selectItems];
-        pickerKeyboard.picker.delegate = pickerDataSource;
-        pickerKeyboard.picker.dataSource = pickerDataSource;
+        mPickerDataSource = [[CsvPickerDataSource alloc] initWithString:setting.selectItems];
+        UIPickerView *picker = (UIPickerView *)mInputView;
+        picker.delegate = mPickerDataSource;
+        picker.dataSource = mPickerDataSource;
+
+        NSInteger indexOf = [mPickerDataSource indexOf:textField.text];
+        [picker selectRow:indexOf inComponent:0 animated:YES];
     }
+    
+    // 入力が日付の場合
+    if( [ReflectionUtil instanceof:mInputView class:[UIDatePicker class]]){
+        __block UIView *bInputView = mInputView;
+        mAccessoryViewController.okBlock = ^{
+            UIDatePicker *datePicker = (UIDatePicker *) bInputView;
+            textField.text = [DateTimeUtil getYYYYMD: datePicker.date];
+            [super focusNextField: textField];
+        };
+    }
+    // 入力がPickerの場合
+    else if( [ReflectionUtil instanceof:mInputView class:[UIPickerView class]]){
+        __block UIView *bInputView = mInputView;
+        __block CsvPickerDataSource *bDataSource = mPickerDataSource;
+        
+        mAccessoryViewController.okBlock = ^{
+            UIPickerView *pickerView = (UIPickerView *) bInputView;
+            NSInteger selectedRow = [pickerView selectedRowInComponent:0];
+            NSString *selectedItem = [bDataSource getSelectedItem:selectedRow];
+            
+            textField.text = selectedItem;
+            [super focusNextField: textField];
+        };
+    }
+    // 入力がその他の場合
+    else{
+        [mAccessoryViewController deleteCancelButton];
+        mAccessoryViewController.okBlock = ^{
+            [textField resignFirstResponder];
+        };
+    }
+    
+    mAccessoryViewController.cancelBlock = ^{
+        [textField resignFirstResponder];
+    };
+    
+    historyMode = NO;
     
     return YES;
 }
 
-- (UIView *)getAccessoryView
-{
-    UIView *accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 40.0f)];
-    accessoryView.backgroundColor = [UIColor blueColor];
+- (UIView *)createInputView: (NSString *)dataType{
+    UIView *inputView;
+    // データ型が日付の場合
+    if ( [dataType isEqualToString: ISM_DATA_TYPE_DATE]){
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        inputView = datePicker;
+    }
+    // データ型が選択方式の場合
+    else if( [dataType isEqualToString: ISM_DATA_TYPE_SELECT]){
+        inputView = [[UIPickerView alloc] init];
+    }
+    return inputView;
+}
+
+- (UIView *)createHistoryView: (ItemSettingModel *)settingModel{
+    UIPickerView *pickerView = [[UIPickerView alloc] init];
+    ItemValueDao *valueDao = [[ItemValueDao alloc] init];
+    NSString *csvValue = [valueDao getHistoryValues: settingModel.rowId.intValue];
+    if( [StringUtil isEmpty:csvValue]){
+        [ViewUtil showToast:@"履歴データは存在しません"];
+        return nil;
+    }
+    mPickerDataSource = [[CsvPickerDataSource alloc] initWithString:csvValue];
+    pickerView.dataSource = mPickerDataSource;
+    pickerView.delegate = mPickerDataSource;
+    return pickerView;
+}
+
+- (OkCancelAccessoryViewController *) createAccessoryViewController{
+    // キャンセル時の処理
+    OkCancelAccessoryViewController *viewController = [[OkCancelAccessoryViewController alloc] init];
+    UIView *accessoryView = [viewController view];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(250.0f, 5.0f, 65.0f, 34.0f);
-    [button setTitle:@"とじる" forState:UIControlStateNormal];
-    
-    // View にボタン追加
-    [accessoryView addSubview:button];
-    
-    return accessoryView;
+    // サイズを指定しないと駄目？
+    accessoryView.frame = CGRectMake(0.0f, 0.0f, 280.0f, 40.0f);
+    return viewController;
 }
 
 #pragma mark Logic
@@ -266,26 +425,11 @@
  * メニュー選択時の処理
  */
 - (IBAction)selectMenu:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"メニュー" delegate:self cancelButtonTitle:@"キャンセル" destructiveButtonTitle:nil otherButtonTitles:@"ヘルプ", @"入力項目設定", @"出力項目設定", @"送信設定",nil];
-    [sheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //遷移先のインスタンスを生成
-    if ( buttonIndex == 1){
-        InputSettingListViewController *inputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InputSettingListViewController"];
-        [[self navigationController] pushViewController:inputSettingViewController animated:YES];
+    if( menuManager == nil){
+        menuManager = [[MenuManager alloc] init];
     }
-    else if( buttonIndex == 2){
-        OutputSettingListViewController *outputSettingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"OutputSettingListViewController"];
-        [[self navigationController] pushViewController:outputSettingViewController animated:YES];
-    }
-    else if( buttonIndex == 3){
-        SettingViewController *settingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingViewController"];
-        [[self navigationController] pushViewController:settingViewController animated:YES];
-        
-//        [self performSegueWithIdentifier:@"setting" sender:self];
-    }
+    menuManager.mViewController = self;
+    [menuManager show];
 }
 
 /**
@@ -304,8 +448,8 @@
     // 値の設定
     // 入力チェック＆モデルに値を設定
     NSMutableString *errorMsg = [[NSMutableString alloc] init];
-    for( int cnt = 0; cnt < values.count; cnt++){
-        ItemValueModel *valueModel = values[ cnt];
+    for( int cnt = 0; cnt < mValues.count; cnt++){
+        ItemValueModel *valueModel = mValues[ cnt];
         ItemSettingModel *settingModel = [ valueModel _itemSettingModel];
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:cnt inSection:0];
@@ -393,7 +537,7 @@
             else if( rowId == 9){
                 // フラグがON
                 if( [ valueModel.value boolValue]){
-                    if( costModel.favoriteOrder == nil){
+                    if( [NumberUtil isEmpty:costModel.favoriteOrder] ){
                         // 新たにお気に入り追加されたものは最大値+1
                         TravelCostDao *dao = [[TravelCostDao alloc]init];
                         costModel.favoriteOrder = [NSNumber numberWithInt:[dao getMax:TCM_COLUMN_FAVORITE_ORDER] + 1];
@@ -416,7 +560,7 @@
     else{
         // 保存
         TravelCostDao *dao = [[TravelCostDao alloc] init];
-        BOOL result = [dao saveTravelCost:costModel values:values];
+        BOOL result = [dao saveTravelCost:costModel values:mValues];
         if( result){
             [ViewUtil showToast:@"保存しました"];
         }
@@ -428,20 +572,43 @@
 }
 
 - (void) reload{
-    [values removeAllObjects];
+    [mValues removeAllObjects];
     [super clearInputField];
-    focusIndexPath = nil;
+    mFocusIndexPath = nil;
     
     NSMutableDictionary *settingValueMap = [[NSMutableDictionary alloc] init];
-    if ( _travelCostRowId != nil){
+    if ( ![NumberUtil isEmpty:_travelCostRowId]){
         ItemValueDao *valueDao = [[ItemValueDao alloc] init];
-        
-        NSString *where = [NSString stringWithFormat: @"%@='%d'", IVM_COLUMN_TRAVEL_COST_ID, [_travelCostRowId intValue]];
-        NSArray *valueModels = [ valueDao list:where order:nil];
+        NSArray *valueModels = [ valueDao getValueModels:[_travelCostRowId intValue]];
         
         for( ItemValueModel *value in valueModels){
+            if( self.fromFavorite){
+                value.rowId = nil;
+                // 日付は当日
+                if( [value.itemSettingId intValue] == 1){
+                    value.value = [StringUtil toStringDouble: (double)[[NSDate date] timeIntervalSince1970]];
+                }
+                // お気に入りはOFF
+                else if( [value.itemSettingId intValue] == 9){
+                    value.value = @"NO";
+                }
+            }
+
             [settingValueMap setObject:value forKey: [StringUtil toStringNumber:value.itemSettingId]];
         }
+        
+        if( self.fromFavorite){
+            _travelCostRowId = nil;
+            [ViewUtil removeItem:self.toolbar title:@"menu"];
+        }
+        [ViewUtil removeItem:self.toolbar title:@"list"];
+        [ViewUtil removeItem:self.toolbar title:@"favorite"];
+    }
+    
+    if ( [NumberUtil isEmpty:_travelCostRowId]){
+        [ViewUtil removeItem:self.toolbar title:@"add"];
+        [ViewUtil removeItem:self.toolbar title:@"copy"];
+        [ViewUtil removeItem:self.toolbar title:@"delete"];
     }
     
     // 初期データを取得する
@@ -453,11 +620,14 @@
             value = [ItemValueModel initFromSetting:setting];
         }
         value._itemSettingModel = setting;
-        [values addObject:value];
+        [mValues addObject:value];
     }
     [ self.tableView reloadData];
     
-    settingLoadTime = [NSDate date];
+    mSettingLoadTime = [NSDate date];
+    
+    // ツールバーにアイコンを設定
+    [ViewUtil setToolbarImages:self.toolbar];
 }
 
 
@@ -475,11 +645,17 @@
     CGFloat appContentHeight = screenRect.size.height;
     CGFloat keyboardTop = (appContentHeight) - (keyboardFrame.size.height + 55.f );   // 55.f:予測変換領域の高さ
     
+    UIView *accessoryView = [mAccessoryViewController view];
+    
+//    if( accessoryView ){
+//        keyboardTop -= accessoryView.frame.size.height;
+//    }
+    
     
     // 2. 編集中セルの bottom を取得する
     // テーブル ビューはスクロールしていることがあるので、オフセットを考慮すること
-    NSInteger row = focusIndexPath.row;
-    NSInteger section = focusIndexPath.section;
+    NSInteger row = mFocusIndexPath.row;
+    NSInteger section = mFocusIndexPath.section;
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row
                                                                                      inSection:section]];
     CGRect cellFrame = cell.frame;
@@ -514,6 +690,9 @@
     // 編集中セルの位置を調整する
     CGRect rect = cell.frame;
     rect.origin.y = cellFrame.origin.y - 300.f;
+
+    rect.origin.y = 20;
+    NSLog( @"%d", (int)rect.origin.y);
     
     [self.tableView scrollRectToVisible:rect animated:YES];
 }
@@ -530,8 +709,8 @@
     };
     [UIView animateWithDuration:duration delay:0.0 options:(animationCurve << 16) animations:animations completion:nil];
     
-    keyboardViewController = nil;
-    pickerDataSource = nil;
+    mInputView = nil;
+    mPickerDataSource = nil;
 }
 
 @end

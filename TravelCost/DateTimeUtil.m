@@ -25,6 +25,16 @@
     return [formatter stringFromDate:date];
 }
 
++ (NSString *) getYYYYM:(NSDate *) date{
+    NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"yyyy/M"];
+    return [formatter stringFromDate:date];
+}
+
++ (NSString *) getYYYYM_JP:(NSDate *) date{
+    NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"yyyy年M月"];
+    return [formatter stringFromDate:date];
+}
+
 + (NSString *) getMD:(NSDate *) date{
     NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"M/d"];
     return [formatter stringFromDate:date];
@@ -40,16 +50,55 @@
     return [formatter stringFromDate:date];
 }
 
++ (NSDate *)getFirstDayOfMonth:(NSDate *) date{
+    // 月初の日付のNSDateを作成する
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components
+    = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit
+                  fromDate:date];
+    components.day = 1;
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    return [calendar dateFromComponents:components];
+}
+
++ (NSDate *) getLastDayOfMonth:(NSDate *) date{
+    // 月末の日付のNSDateを作成する
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSRange range = [calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
+    int lastDay =  range.length;
+    
+    NSDateComponents *components
+    = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit
+                  fromDate:date];
+    components.day = lastDay;
+    components.hour = 23;
+    components.minute = 59;
+    components.second = 59;
+    
+    return [calendar dateFromComponents:components];
+}
+
++ (NSDate *) adjustMonth:(NSDate *)date monthCnt:(int) monthCnt{
+    // 月初の日付のNSDateを作成する
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components
+    = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit
+                  fromDate:date];
+    components.month += monthCnt;
+    return [calendar dateFromComponents:components];
+}
+
 + (NSDate *)adjustTime:(NSDate *)date endDay:(bool) endDay{
-    NSDateFormatter *formatter = [DateTimeUtil createFormatter:@"yyyy/M/d"];
-	NSString *dateStr = [formatter stringFromDate:date];
-	NSDate *adjusDate = [formatter dateFromString:dateStr];
-    if( endDay){
-        // 23:59:59
-        NSTimeInterval interval = 60 * 60 * 24 - 1;
-        adjusDate = [adjusDate initWithTimeInterval:(interval) sinceDate:adjusDate];
-    }
-    return adjusDate;
+    // 月末の日付のNSDateを作成する
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit fromDate:date];
+    components.hour = 23;
+    components.minute = 59;
+    components.second = 59;
+    
+    return [calendar dateFromComponents:components];
 }
 
 + (BOOL) d1_gt_d2:(NSDate *) date1 date2:(NSDate *)date2{

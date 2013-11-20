@@ -12,6 +12,7 @@
 #import "ItemSettingModel.h"
 
 @interface InputSettingEditViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @property (nonatomic) ItemSettingModel *settingModel;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;

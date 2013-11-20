@@ -10,12 +10,18 @@
 
 #import "DataTypeDataSource.h"
 #import "ItemSettingManager.h"
+#import "ViewUtil.h"
 
 @interface InputSettingListViewController ()
 
 @end
 
 @implementation InputSettingListViewController
+
+- (void) viewDidLoad{
+    [super viewDidLoad];
+    [ViewUtil setToolbarImages:self.toolbar];
+}
 
 -(UITableView *)getTableView{
     return _tableView;

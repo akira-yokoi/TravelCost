@@ -33,6 +33,13 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void) deleteCancelButton{
+    // キャンセルボタンを消す
+    NSMutableArray *items = [[NSMutableArray alloc] initWithArray:[self.toolbar items]];
+    [items removeObjectAtIndex: 0];
+    [self.toolbar setItems:items];
+}
+
 - (IBAction)okSelected:(id)sender {
     if( self.okBlock){
         self.okBlock();

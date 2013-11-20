@@ -13,10 +13,11 @@
 #import "ItemSettingManager.h"
 #import "MessageBuilder.h"
 #import "NumberUtil.h"
+#import "OkCancelAccessoryViewController.h"
 
 @interface InputSettingEditViewController ()
 {
-    PickerKeyboardViewController *dataTypeKeyborad;
+    UIPickerView *mPicker;
     DataTypeDataSource *dataTypeDataSource;
 }
 @end
@@ -25,19 +26,26 @@
 
 - (void) viewDidLoad{
     [super viewDidLoad];
-
+    [ViewUtil setToolbarImages:self.toolbar];
+    
     // キーボードの表示タイミングで自動スクロール
     [super autoScroll:self.scrollView];
 
     // キーボードを生成してインスタンス変数に設定
-    dataTypeKeyborad = [[PickerKeyboardViewController alloc] init];
-    self.dataTypeText.inputView = [dataTypeKeyborad view];
+    mPicker = [[UIPickerView alloc] init];
+    dataTypeDataSource = [[DataTypeDataSource alloc] init];
+    mPicker.delegate = dataTypeDataSource;
+    mPicker.dataSource = dataTypeDataSource;
+    self.dataTypeText.inputView = mPicker;
     
-    __block PickerKeyboardViewController *blockViewController = dataTypeKeyborad;
+    __block UIPickerView *blockPicker = mPicker;
     __block InputSettingEditViewController *blockSelf = self;
     
-    dataTypeKeyborad.okBlock = ^{
-        int selectedRow = (int)[blockViewController.picker selectedRowInComponent:0];
+    OkCancelAccessoryViewController *okCancelVc =[[ OkCancelAccessoryViewController alloc] init];
+    self.dataTypeText.inputAccessoryView = [okCancelVc view];
+    
+    okCancelVc.okBlock = ^{
+        int selectedRow = (int)[blockPicker selectedRowInComponent:0];
         NSString *dataTypeCode = [DataTypeDataSource getDataTypeCodeFromIndex:selectedRow];
         NSString *dataTypeName = [DataTypeDataSource getDataTypeNameFromIndex:selectedRow];
         blockSelf.dataTypeText.text = dataTypeName;
@@ -46,16 +54,11 @@
         
         [super focusNextField: blockSelf.dataTypeText];
     };
-    dataTypeKeyborad.cancelBlock = ^{
+    okCancelVc.cancelBlock = ^{
         [blockSelf.dataTypeText resignFirstResponder];
     };
     
     
-    // データソースの設定
-    dataTypeDataSource = [[DataTypeDataSource alloc] init];
-    dataTypeKeyborad.picker.dataSource = dataTypeDataSource;
-    dataTypeKeyborad.picker.delegate = dataTypeDataSource;
-
     [self addInputField:self.nameText];
     [self addInputField:self.dataTypeText];
     [self addInputField:self.defaultValueText];
@@ -71,11 +74,10 @@
         if( [StringUtil isEmpty:dataTypeCode]){
             dataTypeCode = [DataTypeDataSource getDataTypeCodeFromIndex:0];
         }
-
-        int rowIndex = [DataTypeDataSource getIndex:dataTypeCode];
         NSString *dataTypeName = [DataTypeDataSource getDataTypeName:dataTypeCode];
         self.dataTypeText.text = dataTypeName;
-        [dataTypeKeyborad.picker selectRow:rowIndex inComponent:0 animated:true];
+        int rowIndex = [DataTypeDataSource getIndex:dataTypeCode];
+        [mPicker selectRow:rowIndex inComponent:0 animated:true];
         [self changeDataType:dataTypeCode];
         
         // デフォルト値

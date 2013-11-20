@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E84A648E3F2F42D390A6B2DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BC5742E10A4711B5799AA1 /* libPods.a */; };
+		E936AC271835E9AF00841F7B /* FavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E936AC261835E9AF00841F7B /* FavoriteListViewController.m */; };
+		E936AC2A1835F50800841F7B /* FavoriteListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E936AC291835F50800841F7B /* FavoriteListViewCell.m */; };
+		E936AC2D1836093100841F7B /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E936AC2C1836093100841F7B /* HelpViewController.m */; };
 		E93A3EDC1827BE1E00FBFABF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */; };
 		E93A3EE3182A34DD00FBFABF /* OkCancelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */; };
 		E93A3EE5182B23E700FBFABF /* OkCancelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */; };
+		E94313EE182E2C09002E7E17 /* MenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E94313ED182E2C09002E7E17 /* MenuManager.m */; };
+		E94313F0182E358B002E7E17 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94313EF182E358B002E7E17 /* MessageUI.framework */; };
 		E949E68A181018FC0050FAD9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E689181018FC0050FAD9 /* BaseViewController.m */; };
 		E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69018101A4F0050FAD9 /* InputSettingEditViewController.m */; };
 		E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E949E69A18103DFE0050FAD9 /* OutputSettingListViewController.m */; };
@@ -20,29 +26,24 @@
 		E9578EFF17FDB2F50035B289 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578EFE17FDB2F50035B289 /* Foundation.framework */; };
 		E9578F0117FDB2F50035B289 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F0017FDB2F50035B289 /* CoreGraphics.framework */; };
 		E9578F0317FDB2F50035B289 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F0217FDB2F50035B289 /* UIKit.framework */; };
-		E9578F0917FDB2F60035B289 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9578F0717FDB2F60035B289 /* InfoPlist.strings */; };
 		E9578F0B17FDB2F60035B289 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F0A17FDB2F60035B289 /* main.m */; };
 		E9578F0F17FDB2F60035B289 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F0E17FDB2F60035B289 /* AppDelegate.m */; };
-		E9578F1217FDB2F60035B289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9578F1017FDB2F60035B289 /* Main.storyboard */; };
 		E9578F1517FDB2F60035B289 /* CostInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F1417FDB2F60035B289 /* CostInputViewController.m */; };
 		E9578F1717FDB2F60035B289 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9578F1617FDB2F60035B289 /* Images.xcassets */; };
 		E9578F1E17FDB2F60035B289 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F1D17FDB2F60035B289 /* XCTest.framework */; };
 		E9578F1F17FDB2F60035B289 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578EFE17FDB2F50035B289 /* Foundation.framework */; };
 		E9578F2017FDB2F60035B289 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9578F0217FDB2F50035B289 /* UIKit.framework */; };
-		E9578F2817FDB2F60035B289 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9578F2617FDB2F60035B289 /* InfoPlist.strings */; };
 		E9578F2A17FDB2F60035B289 /* TravelCostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9578F2917FDB2F60035B289 /* TravelCostTests.m */; };
 		E95ADF9B182341F400A6B11D /* MessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADF9A182341F400A6B11D /* MessageBuilder.m */; };
 		E95ADF9F1823ADFB00A6B11D /* ItemSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADF9E1823ADFB00A6B11D /* ItemSettingManager.m */; };
 		E95ADFA21823E80300A6B11D /* NumberUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFA11823E80300A6B11D /* NumberUtil.m */; };
 		E95ADFA518253A9600A6B11D /* CsvPickerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */; };
-		E95ADFAB18253E0A00A6B11D /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E95ADFAA18253E0A00A6B11D /* CSVParser.m */; };
-		E986B7461802F3C300C1E5C1 /* PickerKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */; };
-		E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */; };
+		E962B079183CA7D000339B59 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E962B075183CA7D000339B59 /* InfoPlist.strings */; };
+		E962B07A183CA7D000339B59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E962B077183CA7D000339B59 /* Main.storyboard */; };
 		E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */; };
 		E98D7C401814CDC600BB301C /* OutputSettingItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98D7C3F1814CDC600BB301C /* OutputSettingItemViewController.m */; };
 		E99101C718044AC300F3B048 /* ViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E99101C618044AC300F3B048 /* ViewUtil.m */; };
 		E99101CD18044F4C00F3B048 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99101CC18044F4C00F3B048 /* QuartzCore.framework */; };
-		E99101D118044FFF00F3B048 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E99101D018044FFF00F3B048 /* iToast.m */; };
 		E99101DB18046CD300F3B048 /* 740-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E99101D918046CD300F3B048 /* 740-gear.png */; };
 		E99101DC18046CD300F3B048 /* 740-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E99101DA18046CD300F3B048 /* 740-gear@2x.png */; };
 		E99101DF18046DEF00F3B048 /* 785-floppy-disk.png in Resources */ = {isa = PBXBuildFile; fileRef = E99101DD18046DEF00F3B048 /* 785-floppy-disk.png */; };
@@ -54,8 +55,6 @@
 		E99101EB1805110000F3B048 /* 711-trash.png in Resources */ = {isa = PBXBuildFile; fileRef = E99101E91805110000F3B048 /* 711-trash.png */; };
 		E99101EC1805110000F3B048 /* 711-trash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E99101EA1805110000F3B048 /* 711-trash@2x.png */; };
 		E992E69A18029C1E00ED032A /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E992E69918029C1E00ED032A /* InputViewCell.m */; };
-		E992E69C1802B09B00ED032A /* DateKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E992E69B1802B09B00ED032A /* DateKeyboardView.xib */; };
-		E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E992E6A11802B45500ED032A /* DateKeyboardViewController.m */; };
 		E9966249181A6781008727D8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966240181A6781008727D8 /* FMDatabase.m */; };
 		E996624A181A6781008727D8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966242181A6781008727D8 /* FMDatabaseAdditions.m */; };
 		E996624B181A6781008727D8 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9966244181A6781008727D8 /* FMDatabasePool.m */; };
@@ -89,6 +88,7 @@
 		E9BF9D051805B7280055FBA3 /* TableUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BF9D041805B7280055FBA3 /* TableUtil.m */; };
 		E9D54F66180BED4300167C19 /* InputViewSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D54F65180BED4300167C19 /* InputViewSwitchCell.m */; };
 		E9D54F6B180C273200167C19 /* InputSettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D54F6A180C273200167C19 /* InputSettingListViewController.m */; };
+		E9D6F3F9182CC9ED00638A2B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E9D6F3F8182CC9ED00638A2B /* Podfile */; };
 		E9EEA6291800F95700FFAF63 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EEA6281800F95700FFAF63 /* StringUtil.m */; };
 		E9FEC023181FF12900534406 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FEC022181FF12900534406 /* ListViewController.m */; };
 		E9FEC02C18223B9B00534406 /* DataTypeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FEC02B18223B9B00534406 /* DataTypeDataSource.m */; };
@@ -106,11 +106,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18BC5742E10A4711B5799AA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D6B948C7467456AA55C4FC5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E936AC251835E9AF00841F7B /* FavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListViewController.h; sourceTree = "<group>"; };
+		E936AC261835E9AF00841F7B /* FavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListViewController.m; sourceTree = "<group>"; };
+		E936AC281835F50800841F7B /* FavoriteListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListViewCell.h; sourceTree = "<group>"; };
+		E936AC291835F50800841F7B /* FavoriteListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListViewCell.m; sourceTree = "<group>"; };
+		E936AC2B1836093100841F7B /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		E936AC2C1836093100841F7B /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		E93A3EDA1827BE1E00FBFABF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		E93A3EDB1827BE1E00FBFABF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		E93A3EE1182A34DD00FBFABF /* OkCancelAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OkCancelAccessoryViewController.h; sourceTree = "<group>"; };
 		E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OkCancelAccessoryViewController.m; sourceTree = "<group>"; };
 		E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OkCancelAccessoryView.xib; sourceTree = "<group>"; };
+		E94313EC182E2C09002E7E17 /* MenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManager.h; sourceTree = "<group>"; };
+		E94313ED182E2C09002E7E17 /* MenuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManager.m; sourceTree = "<group>"; };
+		E94313EF182E358B002E7E17 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E949E688181018FC0050FAD9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		E949E689181018FC0050FAD9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E949E68F18101A4F0050FAD9 /* InputSettingEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSettingEditViewController.h; sourceTree = "<group>"; };
@@ -128,19 +139,16 @@
 		E9578F0017FDB2F50035B289 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E9578F0217FDB2F50035B289 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9578F0617FDB2F60035B289 /* TravelCost-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelCost-Info.plist"; sourceTree = "<group>"; };
-		E9578F0817FDB2F60035B289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9578F0A17FDB2F60035B289 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9578F0C17FDB2F60035B289 /* TravelCost-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravelCost-Prefix.pch"; sourceTree = "<group>"; };
 		E9578F0D17FDB2F60035B289 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9578F0E17FDB2F60035B289 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E9578F1117FDB2F60035B289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9578F1317FDB2F60035B289 /* CostInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CostInputViewController.h; sourceTree = "<group>"; };
 		E9578F1417FDB2F60035B289 /* CostInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostInputViewController.m; sourceTree = "<group>"; };
 		E9578F1617FDB2F60035B289 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9578F1C17FDB2F60035B289 /* TravelCostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelCostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9578F1D17FDB2F60035B289 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E9578F2517FDB2F60035B289 /* TravelCostTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelCostTests-Info.plist"; sourceTree = "<group>"; };
-		E9578F2717FDB2F60035B289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9578F2917FDB2F60035B289 /* TravelCostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelCostTests.m; sourceTree = "<group>"; };
 		E95ADF99182341F400A6B11D /* MessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBuilder.h; sourceTree = "<group>"; };
 		E95ADF9A182341F400A6B11D /* MessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBuilder.m; sourceTree = "<group>"; };
@@ -150,11 +158,10 @@
 		E95ADFA11823E80300A6B11D /* NumberUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberUtil.m; sourceTree = "<group>"; };
 		E95ADFA318253A9600A6B11D /* CsvPickerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvPickerDataSource.h; sourceTree = "<group>"; };
 		E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CsvPickerDataSource.m; sourceTree = "<group>"; };
-		E95ADFA918253E0A00A6B11D /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
-		E95ADFAA18253E0A00A6B11D /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
-		E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerKeyboardView.xib; sourceTree = "<group>"; };
-		E986B7471802F41A00C1E5C1 /* PickerKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerKeyboardViewController.h; sourceTree = "<group>"; };
-		E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerKeyboardViewController.m; sourceTree = "<group>"; };
+		E962B076183CA7D000339B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E962B078183CA7D000339B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E962B07B183CA7F600339B59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		E962B07C183CA7F600339B59 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E98D7C3C1814CD8300BB301C /* OutputSettingItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutputSettingItemView.xib; sourceTree = "<group>"; };
 		E98D7C3E1814CDC600BB301C /* OutputSettingItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputSettingItemViewController.h; sourceTree = "<group>"; };
 		E98D7C3F1814CDC600BB301C /* OutputSettingItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputSettingItemViewController.m; sourceTree = "<group>"; };
@@ -162,8 +169,6 @@
 		E99101C518044AC300F3B048 /* ViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtil.h; sourceTree = "<group>"; };
 		E99101C618044AC300F3B048 /* ViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtil.m; sourceTree = "<group>"; };
 		E99101CC18044F4C00F3B048 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E99101CF18044FFF00F3B048 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iToast.h; path = "../../../../Downloads/toast-notifications-ios-master/iToast.h"; sourceTree = "<group>"; };
-		E99101D018044FFF00F3B048 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iToast.m; path = "../../../../Downloads/toast-notifications-ios-master/iToast.m"; sourceTree = "<group>"; };
 		E99101D918046CD300F3B048 /* 740-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "740-gear.png"; sourceTree = "<group>"; };
 		E99101DA18046CD300F3B048 /* 740-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "740-gear@2x.png"; sourceTree = "<group>"; };
 		E99101DD18046DEF00F3B048 /* 785-floppy-disk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "785-floppy-disk.png"; sourceTree = "<group>"; };
@@ -176,9 +181,6 @@
 		E99101EA1805110000F3B048 /* 711-trash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "711-trash@2x.png"; sourceTree = "<group>"; };
 		E992E69818029C1E00ED032A /* InputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewCell.h; sourceTree = "<group>"; };
 		E992E69918029C1E00ED032A /* InputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewCell.m; sourceTree = "<group>"; };
-		E992E69B1802B09B00ED032A /* DateKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateKeyboardView.xib; sourceTree = "<group>"; };
-		E992E6A01802B45500ED032A /* DateKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateKeyboardViewController.h; sourceTree = "<group>"; };
-		E992E6A11802B45500ED032A /* DateKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateKeyboardViewController.m; sourceTree = "<group>"; };
 		E996623F181A6781008727D8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E9966240181A6781008727D8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		E9966241181A6781008727D8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		E9D54F65180BED4300167C19 /* InputViewSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewSwitchCell.m; sourceTree = "<group>"; };
 		E9D54F69180C273200167C19 /* InputSettingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSettingListViewController.h; sourceTree = "<group>"; };
 		E9D54F6A180C273200167C19 /* InputSettingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputSettingListViewController.m; sourceTree = "<group>"; };
+		E9D6F3F8182CC9ED00638A2B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E9EEA6271800F95700FFAF63 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		E9EEA6281800F95700FFAF63 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		E9FEC021181FF12900534406 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -252,11 +255,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94313F0182E358B002E7E17 /* MessageUI.framework in Frameworks */,
 				E99101CD18044F4C00F3B048 /* QuartzCore.framework in Frameworks */,
 				E9B13E3717FEA5C40089B860 /* libsqlite3.dylib in Frameworks */,
 				E9578F0117FDB2F50035B289 /* CoreGraphics.framework in Frameworks */,
 				E9578F0317FDB2F50035B289 /* UIKit.framework in Frameworks */,
 				E9578EFF17FDB2F50035B289 /* Foundation.framework in Frameworks */,
+				E84A648E3F2F42D390A6B2DC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +307,8 @@
 				E9578F2317FDB2F60035B289 /* TravelCostTests */,
 				E9578EFD17FDB2F50035B289 /* Frameworks */,
 				E9578EFC17FDB2F50035B289 /* Products */,
+				E9D6F3F8182CC9ED00638A2B /* Podfile */,
+				8D6B948C7467456AA55C4FC5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,6 +324,7 @@
 		E9578EFD17FDB2F50035B289 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E94313EF182E358B002E7E17 /* MessageUI.framework */,
 				E99101CC18044F4C00F3B048 /* QuartzCore.framework */,
 				E9B13E3617FEA5C40089B860 /* libsqlite3.dylib */,
 				E9B13E1E17FE77E60089B860 /* CoreData.framework */,
@@ -324,6 +332,7 @@
 				E9578F0017FDB2F50035B289 /* CoreGraphics.framework */,
 				E9578F0217FDB2F50035B289 /* UIKit.framework */,
 				E9578F1D17FDB2F60035B289 /* XCTest.framework */,
+				18BC5742E10A4711B5799AA1 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,7 +343,7 @@
 				E99101D2180465C200F3B048 /* image */,
 				E9578F0D17FDB2F60035B289 /* AppDelegate.h */,
 				E9578F0E17FDB2F60035B289 /* AppDelegate.m */,
-				E9578F1017FDB2F60035B289 /* Main.storyboard */,
+				E962B077183CA7D000339B59 /* Main.storyboard */,
 				E9D54F68180C262600167C19 /* cell */,
 				E95ADF9C1823ADDE00A6B11D /* common */,
 				E989480817FDC82100E07F9E /* controller */,
@@ -344,7 +353,6 @@
 				E9578F1617FDB2F60035B289 /* Images.xcassets */,
 				E9578F0517FDB2F60035B289 /* Supporting Files */,
 				E9B13E4217FEB8D40089B860 /* amd */,
-				E9B13E0917FE6ADE0089B860 /* lib */,
 			);
 			path = TravelCost;
 			sourceTree = "<group>";
@@ -352,8 +360,9 @@
 		E9578F0517FDB2F60035B289 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E962B075183CA7D000339B59 /* InfoPlist.strings */,
+				E9B13E0917FE6ADE0089B860 /* lib */,
 				E9578F0617FDB2F60035B289 /* TravelCost-Info.plist */,
-				E9578F0717FDB2F60035B289 /* InfoPlist.strings */,
 				E9578F0A17FDB2F60035B289 /* main.m */,
 				E9578F0C17FDB2F60035B289 /* TravelCost-Prefix.pch */,
 			);
@@ -373,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				E9578F2517FDB2F60035B289 /* TravelCostTests-Info.plist */,
-				E9578F2617FDB2F60035B289 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -394,6 +402,12 @@
 				E9578F1417FDB2F60035B289 /* CostInputViewController.m */,
 				E9BF9CFA180543520055FBA3 /* CostListViewController.h */,
 				E9BF9CFB180543520055FBA3 /* CostListViewController.m */,
+				E936AC251835E9AF00841F7B /* FavoriteListViewController.h */,
+				E936AC261835E9AF00841F7B /* FavoriteListViewController.m */,
+				E936AC2B1836093100841F7B /* HelpViewController.h */,
+				E936AC2C1836093100841F7B /* HelpViewController.m */,
+				E94313EC182E2C09002E7E17 /* MenuManager.h */,
+				E94313ED182E2C09002E7E17 /* MenuManager.m */,
 				E9FEC020181E61AF00534406 /* input */,
 				E996624E181BFBCA008727D8 /* output */,
 				E93A3ED91827BE0500FBFABF /* setting */,
@@ -404,12 +418,6 @@
 		E989480917FDC84200E07F9E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				E992E69B1802B09B00ED032A /* DateKeyboardView.xib */,
-				E992E6A01802B45500ED032A /* DateKeyboardViewController.h */,
-				E992E6A11802B45500ED032A /* DateKeyboardViewController.m */,
-				E986B7451802F3C300C1E5C1 /* PickerKeyboardView.xib */,
-				E986B7471802F41A00C1E5C1 /* PickerKeyboardViewController.h */,
-				E986B7481802F41A00C1E5C1 /* PickerKeyboardViewController.m */,
 				E93A3EE4182B23E700FBFABF /* OkCancelAccessoryView.xib */,
 				E93A3EE1182A34DD00FBFABF /* OkCancelAccessoryViewController.h */,
 				E93A3EE2182A34DD00FBFABF /* OkCancelAccessoryViewController.m */,
@@ -425,15 +433,6 @@
 				E95ADFA418253A9600A6B11D /* CsvPickerDataSource.m */,
 			);
 			name = delegate;
-			sourceTree = "<group>";
-		};
-		E99101CE18044FEC00F3B048 /* toast */ = {
-			isa = PBXGroup;
-			children = (
-				E99101CF18044FFF00F3B048 /* iToast.h */,
-				E99101D018044FFF00F3B048 /* iToast.m */,
-			);
-			name = toast;
 			sourceTree = "<group>";
 		};
 		E99101D2180465C200F3B048 /* image */ = {
@@ -480,7 +479,6 @@
 		E9B13E0917FE6ADE0089B860 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E99101CE18044FEC00F3B048 /* toast */,
 				E9B13E2417FEA5940089B860 /* fmdb */,
 				E9B13E0A17FE6AE60089B860 /* mjpopup */,
 			);
@@ -533,8 +531,8 @@
 			isa = PBXGroup;
 			children = (
 				E9B13E3C17FEAE050089B860 /* TravelCostDao.h */,
-				E9B13E3D17FEAE050089B860 /* TravelCostDao.m */,
 				E9B13E5C18005B780089B860 /* ItemSettingDao.h */,
+				E9B13E3D17FEAE050089B860 /* TravelCostDao.m */,
 				E9B13E5D18005B780089B860 /* ItemSettingDao.m */,
 				E9B13E5F18005BD60089B860 /* ItemValueDao.h */,
 				E9B13E6018005BD60089B860 /* ItemValueDao.m */,
@@ -545,9 +543,9 @@
 		E9B13E4217FEB8D40089B860 /* amd */ = {
 			isa = PBXGroup;
 			children = (
+				E9B1EA7E1806B88800DD6CFC /* common */,
 				E98D7C4418152F6700BB301C /* delegate */,
 				E949E68B181019020050FAD9 /* controller */,
-				E9B1EA7E1806B88800DD6CFC /* common */,
 				E9EEA6261800F93600FFAF63 /* util */,
 				E9B13E4717FEB9F50089B860 /* model */,
 				E9B13E4317FEB8E90089B860 /* dao */,
@@ -595,6 +593,8 @@
 				E9BF9CFE1805475F0055FBA3 /* ListViewCell.m */,
 				E949E69C1810C79A0050FAD9 /* OutputSettingListViewCell.h */,
 				E949E69D1810C79A0050FAD9 /* OutputSettingListViewCell.m */,
+				E936AC281835F50800841F7B /* FavoriteListViewCell.h */,
+				E936AC291835F50800841F7B /* FavoriteListViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -602,8 +602,6 @@
 		E9EEA6261800F93600FFAF63 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				E95ADFA918253E0A00A6B11D /* CSVParser.h */,
-				E95ADFAA18253E0A00A6B11D /* CSVParser.m */,
 				E9B13E5918004CC00089B860 /* DateTimeUtil.h */,
 				E9B13E5A18004CC00089B860 /* DateTimeUtil.m */,
 				E9EEA6271800F95700FFAF63 /* StringUtil.h */,
@@ -642,9 +640,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9578F2D17FDB2F60035B289 /* Build configuration list for PBXNativeTarget "TravelCost" */;
 			buildPhases = (
+				0C95F95F12B546B3BFDEBA2A /* Check Pods Manifest.lock */,
 				E9578EF717FDB2F50035B289 /* Sources */,
 				E9578EF817FDB2F50035B289 /* Frameworks */,
 				E9578EF917FDB2F50035B289 /* Resources */,
+				1660F1C82E854D61ABB42219 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -694,6 +694,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E9578EF217FDB2F50035B289;
 			productRefGroup = E9578EFC17FDB2F50035B289 /* Products */;
@@ -718,6 +719,7 @@
 				E9BF9CF018053CDE0055FBA3 /* 766-arrow-right.png in Resources */,
 				E99101E318046DFF00F3B048 /* 854-list.png in Resources */,
 				E99101E018046DEF00F3B048 /* 785-floppy-disk@2x.png in Resources */,
+				E962B07A183CA7D000339B59 /* Main.storyboard in Resources */,
 				E99101DC18046CD300F3B048 /* 740-gear@2x.png in Resources */,
 				E99101E718046E2D00F3B048 /* 729-top-list.png in Resources */,
 				E9BF9CF518053E5B0055FBA3 /* 730-envelope@2x.png in Resources */,
@@ -726,17 +728,15 @@
 				E99101E418046DFF00F3B048 /* 854-list@2x.png in Resources */,
 				E99101EB1805110000F3B048 /* 711-trash.png in Resources */,
 				E9BF9CF918053E6F0055FBA3 /* 709-plus@2x.png in Resources */,
-				E986B7461802F3C300C1E5C1 /* PickerKeyboardView.xib in Resources */,
 				E9BF9CF118053CDE0055FBA3 /* 766-arrow-right@2x.png in Resources */,
 				E99101E818046E2D00F3B048 /* 729-top-list@2x.png in Resources */,
 				E9BF9CF818053E6F0055FBA3 /* 709-plus.png in Resources */,
 				E949E6A5181133E90050FAD9 /* 739-question@2x.png in Resources */,
+				E962B079183CA7D000339B59 /* InfoPlist.strings in Resources */,
 				E93A3EE5182B23E700FBFABF /* OkCancelAccessoryView.xib in Resources */,
-				E9578F0917FDB2F60035B289 /* InfoPlist.strings in Resources */,
 				E98D7C3D1814CD8300BB301C /* OutputSettingItemView.xib in Resources */,
 				E9BF9CF418053E5B0055FBA3 /* 730-envelope.png in Resources */,
-				E992E69C1802B09B00ED032A /* DateKeyboardView.xib in Resources */,
-				E9578F1217FDB2F60035B289 /* Main.storyboard in Resources */,
+				E9D6F3F9182CC9ED00638A2B /* Podfile in Resources */,
 				E99101EC1805110000F3B048 /* 711-trash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,11 +745,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9578F2817FDB2F60035B289 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C95F95F12B546B3BFDEBA2A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1660F1C82E854D61ABB42219 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9578EF717FDB2F50035B289 /* Sources */ = {
@@ -760,6 +792,7 @@
 				E949E69118101A4F0050FAD9 /* InputSettingEditViewController.m in Sources */,
 				E95ADFA21823E80300A6B11D /* NumberUtil.m in Sources */,
 				E9D54F66180BED4300167C19 /* InputViewSwitchCell.m in Sources */,
+				E94313EE182E2C09002E7E17 /* MenuManager.m in Sources */,
 				E95ADF9F1823ADFB00A6B11D /* ItemSettingManager.m in Sources */,
 				E9B13E1717FE77CA0089B860 /* ItemValueModel.m in Sources */,
 				E9966249181A6781008727D8 /* FMDatabase.m in Sources */,
@@ -784,25 +817,24 @@
 				E9966251181CBAB2008727D8 /* ReflectionUtil.m in Sources */,
 				E9578F0B17FDB2F60035B289 /* main.m in Sources */,
 				E9B13E0F17FE6AF40089B860 /* MJPopupBackgroundView.m in Sources */,
-				E99101D118044FFF00F3B048 /* iToast.m in Sources */,
 				E9EEA6291800F95700FFAF63 /* StringUtil.m in Sources */,
 				E949E69E1810C79A0050FAD9 /* OutputSettingListViewCell.m in Sources */,
 				E996624A181A6781008727D8 /* FMDatabaseAdditions.m in Sources */,
 				E9B13E5B18004CC00089B860 /* DateTimeUtil.m in Sources */,
-				E986B7491802F41A00C1E5C1 /* PickerKeyboardViewController.m in Sources */,
 				E992E69A18029C1E00ED032A /* InputViewCell.m in Sources */,
 				E9BF9CFF1805475F0055FBA3 /* ListViewCell.m in Sources */,
-				E95ADFAB18253E0A00A6B11D /* CSVParser.m in Sources */,
 				E9B13E4117FEB8C80089B860 /* Dao.m in Sources */,
 				E9B13E5E18005B780089B860 /* ItemSettingDao.m in Sources */,
+				E936AC271835E9AF00841F7B /* FavoriteListViewController.m in Sources */,
 				E949E69B18103DFE0050FAD9 /* OutputSettingListViewController.m in Sources */,
-				E992E6A21802B45500ED032A /* DateKeyboardViewController.m in Sources */,
 				E93A3EE3182A34DD00FBFABF /* OkCancelAccessoryViewController.m in Sources */,
+				E936AC2A1835F50800841F7B /* FavoriteListViewCell.m in Sources */,
 				E99101C718044AC300F3B048 /* ViewUtil.m in Sources */,
 				E9FEC02F1822490A00534406 /* KeyboardViewController.m in Sources */,
 				E9B13E3A17FEAA170089B860 /* DatabaseManager.m in Sources */,
 				E949E6A1181132C80050FAD9 /* OutputSettingEditViewController.m in Sources */,
 				E9B13E1017FE6AF40089B860 /* UIViewController+MJPopupViewController.m in Sources */,
+				E936AC2D1836093100841F7B /* HelpViewController.m in Sources */,
 				E996624B181A6781008727D8 /* FMDatabasePool.m in Sources */,
 				E93A3EDC1827BE1E00FBFABF /* SettingViewController.m in Sources */,
 			);
@@ -827,28 +859,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E9578F0717FDB2F60035B289 /* InfoPlist.strings */ = {
+		E962B075183CA7D000339B59 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E9578F0817FDB2F60035B289 /* en */,
+				E962B076183CA7D000339B59 /* Base */,
+				E962B07C183CA7F600339B59 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		E9578F1017FDB2F60035B289 /* Main.storyboard */ = {
+		E962B077183CA7D000339B59 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E9578F1117FDB2F60035B289 /* Base */,
+				E962B078183CA7D000339B59 /* Base */,
+				E962B07B183CA7F600339B59 /* ja */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E9578F2617FDB2F60035B289 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9578F2717FDB2F60035B289 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -928,6 +954,7 @@
 		};
 		E9578F2E17FDB2F60035B289 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D6B948C7467456AA55C4FC5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -935,6 +962,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelCost/TravelCost-Prefix.pch";
 				INFOPLIST_FILE = "TravelCost/TravelCost-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -942,6 +970,7 @@
 		};
 		E9578F2F17FDB2F60035B289 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D6B948C7467456AA55C4FC5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -949,6 +978,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelCost/TravelCost-Prefix.pch";
 				INFOPLIST_FILE = "TravelCost/TravelCost-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

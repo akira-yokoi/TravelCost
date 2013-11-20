@@ -16,5 +16,6 @@
 @interface OutputSettingListViewController : ListViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end

@@ -8,8 +8,6 @@
 
 #import "CsvPickerDataSource.h"
 
-#import "CSVParser.h"
-
 @implementation CsvPickerDataSource
 {
     NSArray *values;
@@ -35,6 +33,14 @@
 // 表示する内容を返す
 -(NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return values[ row];
+}
+
+- (NSString *) getSelectedItem: (NSInteger )selectedIndex{
+    return values[ selectedIndex];
+}
+
+- (NSInteger) indexOf:( NSString *)item{
+    return [values indexOfObject:item];
 }
 
 @end

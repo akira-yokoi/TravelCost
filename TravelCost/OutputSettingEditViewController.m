@@ -34,6 +34,7 @@
     values = [[NSMutableArray alloc] init];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [ViewUtil setToolbarImages:self.toolbar];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

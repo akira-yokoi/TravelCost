@@ -12,15 +12,22 @@
 
 + (NSDate *) getDate:(double)millis;
 + (NSDate *) getDateFromYYYYMMDD: (NSString *) yyyymmdd;
-    
+
++ (NSString *) getYYYYM:(NSDate *) date;
++ (NSString *) getYYYYM_JP:(NSDate *) date;
 + (NSString *) getYYYYMD:(NSDate *) date;
 + (NSString *) getMD:(NSDate *) date;
 + (NSString *) getD:(NSDate *) date;
 
 + (NSString *) getYYYYMD_HHMMSS:(NSDate *) date;
 
-+ (NSDate *)adjustTime:(NSDate *)date endDay:(bool) endDay;
++ (NSDate *) getFirstDayOfMonth:(NSDate *) date;
 
++ (NSDate *) getLastDayOfMonth:(NSDate *) date;
+
++ (NSDate *) adjustTime:(NSDate *)date endDay:(bool) endDay;
+
++ (NSDate *) adjustMonth:(NSDate *)date monthCnt:(int) monthCnt;
 
 + (BOOL) d1_gt_d2:(NSDate *) date1 date2:(NSDate *)date2;
 

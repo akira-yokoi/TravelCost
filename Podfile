@@ -1,0 +1,5 @@
+platform:ios, '6.1'
+pod 'FontAwesomeKit'
+pod 'SVProgressHUD'
+pod 'CHCSVParser'
+pod 'CSV'

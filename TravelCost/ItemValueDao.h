@@ -15,4 +15,8 @@
 
 + (NSString *) createTableSql;
 
+- (NSArray *) getValueModels: (int) travelCostId;
+
+- (NSString *)getHistoryValues: (int) itemSettingId;
+
 @end

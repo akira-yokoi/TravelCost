@@ -10,8 +10,10 @@
 
 #import "BaseViewController.h"
 
-@interface CostInputViewController : BaseViewController<UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface CostInputViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
+@property BOOL fromFavorite;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) NSNumber *travelCostRowId;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

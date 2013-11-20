@@ -1,0 +1,168 @@
+
+/* Class = "IBUILabel"; text = "中野坂上〜渋谷"; ObjectID = "03W-hW-aZc"; */
+"03W-hW-aZc.text" = "中野坂上〜渋谷";
+
+/* Class = "IBUILabel"; text = "中野坂上〜新宿3丁目"; ObjectID = "06E-TM-SpC"; */
+"06E-TM-SpC.text" = "中野坂上〜新宿3丁目";
+
+/* Class = "IBUIBarButtonItem"; title = "save"; ObjectID = "0He-ca-xQY"; */
+"0He-ca-xQY.title" = "save";
+
+/* Class = "IBUINavigationItem"; title = "入力項目一覧"; ObjectID = "0ch-fs-yfK"; */
+"0ch-fs-yfK.title" = "入力項目一覧";
+
+/* Class = "IBUIBarButtonItem"; title = "add"; ObjectID = "0qR-Z0-JSo"; */
+"0qR-Z0-JSo.title" = "add";
+
+/* Class = "IBUIBarButtonItem"; title = "戻る"; ObjectID = "1ty-jR-7zr"; */
+"1ty-jR-7zr.title" = "戻る";
+
+/* Class = "IBUILabel"; text = "楽々交通費精算をご利用いただきありがとうございます。\nご意見、ご要望はメールにてご連絡ください。"; ObjectID = "2p5-lt-t2b"; */
+"2p5-lt-t2b.text" = "楽々交通費精算をご利用いただきありがとうございます。\nご意見、ご要望はメールにてご連絡ください。";
+
+/* Class = "IBUILabel"; text = "メールアドレス"; ObjectID = "3F1-Cy-drJ"; */
+"3F1-Cy-drJ.text" = "メールアドレス";
+
+/* Class = "IBUILabel"; text = "項目名"; ObjectID = "4Gm-oW-a9g"; */
+"4Gm-oW-a9g.text" = "項目名";
+
+/* Class = "IBUILabel"; text = "100000"; ObjectID = "4Y5-35-RQo"; */
+"4Y5-35-RQo.text" = "100000";
+
+/* Class = "IBUINavigationItem"; title = "一覧"; ObjectID = "5R1-YB-6AE"; */
+"5R1-YB-6AE.title" = "一覧";
+
+/* Class = "IBUIBarButtonItem"; title = "favorite"; ObjectID = "6b6-GS-pvB"; */
+"6b6-GS-pvB.title" = "favorite";
+
+/* Class = "IBUILabel"; text = "100000"; ObjectID = "6bS-8K-aaG"; */
+"6bS-8K-aaG.text" = "100000";
+
+/* Class = "IBUITextField"; placeholder = "未設定"; ObjectID = "7Dh-dU-VGs"; */
+"7Dh-dU-VGs.placeholder" = "未設定";
+
+/* Class = "IBUILabel"; text = "詳細"; ObjectID = "7i9-XT-W78"; */
+"7i9-XT-W78.text" = "詳細";
+
+/* Class = "IBUILabel"; text = "デフォルト値"; ObjectID = "97K-PA-pTq"; */
+"97K-PA-pTq.text" = "デフォルト値";
+
+/* Class = "IBUIBarButtonItem"; title = "copy"; ObjectID = "9GH-ZH-wnm"; */
+"9GH-ZH-wnm.title" = "copy";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "AgB-h6-WuL"; */
+"AgB-h6-WuL.text" = "Title";
+
+/* Class = "IBUILabel"; text = "10000"; ObjectID = "Bkw-0f-PvP"; */
+"Bkw-0f-PvP.text" = "10000";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "D3t-y1-ubl"; */
+"D3t-y1-ubl.text" = "Title";
+
+/* Class = "IBUIBarButtonItem"; title = "戻る"; ObjectID = "EpC-W2-dZ6"; */
+"EpC-W2-dZ6.title" = "戻る";
+
+/* Class = "IBUILabel"; text = "項目名"; ObjectID = "FBQ-TL-9JQ"; */
+"FBQ-TL-9JQ.text" = "項目名";
+
+/* Class = "IBUILabel"; text = "選択肢(カンマ区切り)"; ObjectID = "HXb-ue-Kju"; */
+"HXb-ue-Kju.text" = "選択肢(カンマ区切り)";
+
+/* Class = "IBUIBarButtonItem"; title = "help"; ObjectID = "JSP-h0-9By"; */
+"JSP-h0-9By.title" = "help";
+
+/* Class = "IBUIButton"; normalTitle = "開発者へメール"; ObjectID = "MQg-ai-Gde"; */
+"MQg-ai-Gde.normalTitle" = "開発者へメール";
+
+/* Class = "IBUINavigationItem"; title = "入力項目編集"; ObjectID = "Olp-ut-n7a"; */
+"Olp-ut-n7a.title" = "入力項目編集";
+
+/* Class = "IBUILabel"; text = "10日"; ObjectID = "Qss-Eg-4aN"; */
+"Qss-Eg-4aN.text" = "10日";
+
+/* Class = "IBUIBarButtonItem"; title = "delete"; ObjectID = "RhF-w5-bEq"; */
+"RhF-w5-bEq.title" = "delete";
+
+/* Class = "IBUILabel"; text = "合計"; ObjectID = "TOC-vP-pR6"; */
+"TOC-vP-pR6.text" = "合計";
+
+/* Class = "IBUIBarButtonItem"; title = "戻る"; ObjectID = "Uad-IQ-6Im"; */
+"Uad-IQ-6Im.title" = "戻る";
+
+/* Class = "IBUIBarButtonItem"; title = "menu"; ObjectID = "UpT-OF-cYI"; */
+"UpT-OF-cYI.title" = "menu";
+
+/* Class = "IBUIBarButtonItem"; title = "add"; ObjectID = "VMB-fv-3XS"; */
+"VMB-fv-3XS.title" = "add";
+
+/* Class = "IBUIViewController"; title = "入力項目設定"; ObjectID = "XTU-cY-icF"; */
+"XTU-cY-icF.title" = "入力項目設定";
+
+/* Class = "IBUIBarButtonItem"; title = "戻る"; ObjectID = "ZJT-su-ScN"; */
+"ZJT-su-ScN.title" = "戻る";
+
+/* Class = "IBUIBarButtonItem"; title = "menu"; ObjectID = "c1I-jW-mGQ"; */
+"c1I-jW-mGQ.title" = "menu";
+
+/* Class = "IBUIBarButtonItem"; title = "help"; ObjectID = "dWS-vp-B2f"; */
+"dWS-vp-B2f.title" = "help";
+
+/* Class = "IBUIBarButtonItem"; title = "add"; ObjectID = "e01-Wl-ZIp"; */
+"e01-Wl-ZIp.title" = "add";
+
+/* Class = "IBUILabel"; text = "titleLabel"; ObjectID = "eQg-bR-smX"; */
+"eQg-bR-smX.text" = "titleLabel";
+
+/* Class = "IBUIBarButtonItem"; title = "add"; ObjectID = "fdK-O0-BYp"; */
+"fdK-O0-BYp.title" = "add";
+
+/* Class = "IBUIBarButtonItem"; title = "save"; ObjectID = "fgS-Pa-tVx"; */
+"fgS-Pa-tVx.title" = "save";
+
+/* Class = "IBUINavigationItem"; title = "出力項目一覧"; ObjectID = "fh5-ze-l0u"; */
+"fh5-ze-l0u.title" = "出力項目一覧";
+
+/* Class = "IBUIBarButtonItem"; title = "save"; ObjectID = "hMm-F6-uM6"; */
+"hMm-F6-uM6.title" = "save";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "hhE-tw-KCj"; */
+"hhE-tw-KCj.text" = "Detail";
+
+/* Class = "IBUITableViewSection"; headerTitle = "送信設定"; ObjectID = "md1-DS-O8m"; */
+"md1-DS-O8m.headerTitle" = "送信設定";
+
+/* Class = "IBUINavigationItem"; title = "ヘルプ"; ObjectID = "n9t-l2-6US"; */
+"n9t-l2-6US.title" = "ヘルプ";
+
+/* Class = "IBUIBarButtonItem"; title = "mail"; ObjectID = "nRw-5R-uIH"; */
+"nRw-5R-uIH.title" = "mail";
+
+/* Class = "IBUILabel"; text = "titleLabel"; ObjectID = "nmq-mE-38E"; */
+"nmq-mE-38E.text" = "titleLabel";
+
+/* Class = "IBUIBarButtonItem"; title = "add"; ObjectID = "pDV-Hi-KoU"; */
+"pDV-Hi-KoU.title" = "add";
+
+/* Class = "IBUIViewController"; title = "入力項目設定"; ObjectID = "pSa-MX-Teo"; */
+"pSa-MX-Teo.title" = "入力項目設定";
+
+/* Class = "IBUINavigationItem"; title = "出力項目編集"; ObjectID = "uAH-GV-e65"; */
+"uAH-GV-e65.title" = "出力項目編集";
+
+/* Class = "IBUIBarButtonItem"; title = "delete"; ObjectID = "uz9-ER-gf0"; */
+"uz9-ER-gf0.title" = "delete";
+
+/* Class = "IBUINavigationItem"; title = "交通費入力"; ObjectID = "wW2-Jp-3vU"; */
+"wW2-Jp-3vU.title" = "交通費入力";
+
+/* Class = "IBUIViewController"; title = "出力項目編集"; ObjectID = "x18-D8-LqG"; */
+"x18-D8-LqG.title" = "出力項目編集";
+
+/* Class = "IBUILabel"; text = "データ型"; ObjectID = "xtv-LC-qGQ"; */
+"xtv-LC-qGQ.text" = "データ型";
+
+/* Class = "IBUIBarButtonItem"; title = "delete"; ObjectID = "zCq-c3-sNl"; */
+"zCq-c3-sNl.title" = "delete";
+
+/* Class = "IBUIBarButtonItem"; title = "list"; ObjectID = "zHm-zb-n6r"; */
+"zHm-zb-n6r.title" = "list";

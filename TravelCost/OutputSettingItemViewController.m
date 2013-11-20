@@ -38,6 +38,8 @@
     _inputItemPicker.dataSource = self;
     _inputItemPicker.delegate = self;
     _fixStringText.delegate = self;
+    
+    [ViewUtil setToolbarImages:self.toolbar];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

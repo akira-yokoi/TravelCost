@@ -12,4 +12,8 @@
 
 - (id)initWithString:(NSString *)csv;
 
+- (NSString *) getSelectedItem: (NSInteger )selectedIndex;
+
+- (NSInteger) indexOf:( NSString *)item;
+
 @end

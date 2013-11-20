@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "iToast.h"
 
 @interface ViewUtil : NSObject
 
@@ -16,5 +15,12 @@
 +(void) showToast:(NSString *)message;
 
 +(void) closeView:(UIViewController *)vc;
+
+
++(void) setToolbarImages:(UIToolbar *) toolbar;
+
++ (UIImage *) createButtonImage:(NSString *)unicode;
+
++(void) removeItem:(UIToolbar *)toolbar title:(NSString *)title;
 
 @end

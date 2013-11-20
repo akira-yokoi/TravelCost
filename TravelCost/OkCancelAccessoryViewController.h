@@ -11,10 +11,12 @@
 #import "KeyboardViewController.h"
 
 @interface OkCancelAccessoryViewController : KeyboardViewController
-@property (weak, nonatomic) IBOutlet UITextField *text;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 - (IBAction)cancelSelected:(id)sender;
 - (IBAction)okSelected:(id)sender;
 
+- (void) deleteCancelButton;
 
 @end

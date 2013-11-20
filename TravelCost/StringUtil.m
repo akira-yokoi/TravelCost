@@ -216,12 +216,11 @@ static NSString * const LARGE_ALPHABET = @"ABCDEFGHIJKLMNOPQRSTUVXWYZ";
 + (NSString *) createCSV: (NSArray *) items{
     NSMutableString *csv = [[NSMutableString alloc] init];
     for( NSString *item in items){
-        if( item.length != 0){
+        if( csv.length != 0){
             [csv appendString: @","];
         }
         [csv appendString:item];
     }
     return csv;
 }
-
 @end

@@ -52,4 +52,6 @@
 
 + (NSArray *) parseCSV: (NSString *) csv;
 
++ (NSString *) createCSV: (NSArray *) items;
+
 @end

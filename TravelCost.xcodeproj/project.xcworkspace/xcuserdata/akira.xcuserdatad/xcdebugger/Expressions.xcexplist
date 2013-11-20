@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[OutputSettingListViewController onChangeSwitch:]:OutputSettingListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[OutputSettingListViewController tableView:cellForRowAtIndexPath:]:OutputSettingListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Dao list:order:]:Dao.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Dao getValues:columnNames:]:Dao.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CostListViewController viewDidLoad]:CostListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CostInputViewController selectSave:]:CostInputViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CostListViewController tableView:cellForRowAtIndexPath:]:CostListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CsvPickerDataSource initWithString:]:CsvPickerDataSource.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CsvPickerDataSource pickerView:numberOfRowsInComponent:]:CsvPickerDataSource.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CostInputViewController textFieldShouldBeginEditing:]:CostInputViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField.inputAccessoryView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TravelCostDao saveTravelCost:values:]:TravelCostDao.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
